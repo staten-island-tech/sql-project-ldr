@@ -9,5 +9,7 @@ const supabase = createClient(supabaseUrl, supabaseKey)
 
 <template>
   <main>
+ 
+
   </main>
 </template>
