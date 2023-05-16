@@ -7,26 +7,24 @@ export default {
   data() {
     return {
       checkboxValues,
-      DOMSelectors: {
-        petsitterMale: document.getElementById('petsitterMale'),
-        petsitterFemale: document.getElementById('petsitterFemale'),
-        petMale: document.getElementById('petMale'),
-        petFemale: document.getElementById('petFemale')
-      }
+      malePetsitter: document.getElementById('petsitterMale'),
+      femalePetsitter: document.getElementById('petsitterFemale'),
+      malePet: document.getElementById('petMale'),
+      femalePet: document.getElementById('petFemale')
     }
   },
   methods: {
     submitted: async function () {
+      console.log(document.getElementById('petsitterMale').value)
       console.log('yes')
-      let petsitterPreference = this.sort(
-        this.DOMSelectors.petsitterMale.value,
-        this.DOMSelectors.petsitterFemale.value
-      )
-      let petGender = this.sort(this.DOMSelectors.petMale.value, this.DOMSelectors.petFemale.value)
+      let petsitterPreference = this.sort(this.malePetsitter.value, this.femalePetsitter.value)
+      let petGender = this.sort(this.malePet.value, this.femalePet.value)
       console.log(petGender)
       console.log(petsitterPreference)
     },
     sort: function (male, female) {
+      let gender = ''
+      console.log(male)
       if (male === true && female === true) {
         let gender = 'Any'
       } else if (male === false && female === false) {
@@ -57,7 +55,7 @@ export default {
           v-bind:key="gender"
           :name="gender.name"
           :id="gender.id"
-          :value="gender.value"
+          v-model="gender.variable"
         />
       </div>
       <div class="submit">
