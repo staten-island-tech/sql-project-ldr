@@ -6,7 +6,39 @@ export default {
   components: { DateSelector, CheckBoxes },
   data() {
     return {
-      checkboxValues
+      checkboxValues,
+      DOMSelectors: {
+        petsitterMale: document.getElementById('petsitterMale'),
+        petsitterFemale: document.getElementById('petsitterFemale'),
+        petMale: document.getElementById('petMale'),
+        petFemale: document.getElementById('petFemale')
+      }
+    }
+  },
+  methods: {
+    submitted: async function () {
+      console.log('yes')
+      let petsitterPreference = this.sort(
+        this.DOMSelectors.petsitterMale.value,
+        this.DOMSelectors.petsitterFemale.value
+      )
+      let petGender = this.sort(this.DOMSelectors.petMale.value, this.DOMSelectors.petFemale.value)
+      console.log(petGender)
+      console.log(petsitterPreference)
+    },
+    sort: function (male, female) {
+      if (male === true && female === true) {
+        let gender = 'Any'
+      } else if (male === false && female === false) {
+        let gender = 'Any'
+      } else if (male === true && female === false) {
+        let gender = 'Male'
+      } else if (female === true && male === false) {
+        let gender = 'Female'
+      } else {
+        console.log('error')
+      }
+      return gender
     }
   }
 }
@@ -27,6 +59,9 @@ export default {
           :id="gender.id"
           :value="gender.value"
         />
+      </div>
+      <div class="submit">
+        <button class="submit" v-on:click="submitted">Submit</button>
       </div>
     </div>
   </div>

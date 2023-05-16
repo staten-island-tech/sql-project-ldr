@@ -2,22 +2,22 @@
 export const checkboxValues = [
   {
     name: 'pet sitter gender',
-    id: 'M',
+    id: 'petsitterMale',
     value: 'Male'
   },
   {
     name: 'pet sitter gender',
-    id: 'F',
+    id: 'petsitterFemale',
     value: 'Female'
   },
   {
     name: 'pet gender',
-    id: 'M',
+    id: 'petMale',
     value: 'Male'
   },
   {
     name: 'pet gender',
-    id: 'F',
+    id: 'petFemale',
     value: 'Female'
   }
 ]
@@ -34,8 +34,8 @@ export default {
 <template>
   <div class="main">
     <div class="checkbox">
-      <input type="checkbox" id="{{ id }}" name="{{name}}" value="{{value}}" />
-      <label for="{{id}}">{{ value }}</label>
+      <input type="checkbox" v-bind:id="id" v-bind:name="name" v-bind:value="value" v-model="e" />
+      <label v-bind:for="id">{{ value }}</label>
     </div>
   </div>
 </template>
