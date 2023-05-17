@@ -15,12 +15,7 @@ export default {
   },
   methods: {
     submitted: async function () {
-      console.log(document.getElementById('petsitterMale').value)
       console.log('yes')
-      let petsitterPreference = this.sort(this.malePetsitter, this.femalePetsitter)
-      let petGender = this.sort(this.malePet, this.femalePet)
-      console.log(petGender)
-      console.log(petsitterPreference)
     }
   }
 }
@@ -31,7 +26,7 @@ export default {
     <div class="header"><h1>This is an about page</h1></div>
     <div class="requestCreator">
       <div class="dates">
-        <DateSelector :id="id" v-model="date" />
+        <DateSelector />
       </div>
       <div class="checkboxes">
         <CheckBoxes />
