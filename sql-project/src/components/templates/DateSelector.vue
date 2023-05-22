@@ -18,9 +18,13 @@ export default {
   methods: {
     e: function () {
       console.log(this.dateTime)
-      let date = this.dateTime.slice(0, 10)
+      let date = this.dateTime.replace('T', ' ')
       console.log(date)
-      console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
+      let dateOffset = date + ' +0000'
+      let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
+      console.log(timezone)
+      let finalDate = this.convertTimezones(dateOffset, timezone)
+      console.log(finalDate)
     },
     convertTimezones: function (date, tzString) {
       return new Date(
