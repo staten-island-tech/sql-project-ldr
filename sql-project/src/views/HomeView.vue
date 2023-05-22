@@ -1,5 +1,6 @@
 <script>
 import { createClient } from '@supabase/supabase-js'
+import {Logintemplate} from '../components/templates/login.vue'
 
 const supabaseUrl = 'https://tzithwsneecztaewiwhj.supabase.co'
 const supabaseKey =
@@ -50,6 +51,8 @@ export default {
     </div>
   </main>
 </template>
+<Logintemplate></Logintemplate>
+
 
 <style scoped>
 .login-card {
