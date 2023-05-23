@@ -33,20 +33,20 @@ export default {
         })
       }
     }
-  }
+  },
 
-}
 methods:{
-  async function login(){
+  async  login(){
 
     let userEmail = document.getElementById('signup-email').value
       let userPassword = document.getElementById('signup-password').value
-  }
+  },
   async function signInWithEmail() {
   const { data, error } = await supabase.auth.signInWithPassword({
     email: 'example@email.com',
     password: 'example-password',
-  })}}
+  }
+  )}}}
 </script>
 
 <template>
