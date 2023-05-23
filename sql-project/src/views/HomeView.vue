@@ -7,30 +7,29 @@ const supabaseKey =
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 export default {
-  data() {},
   methods: {
     async signup(a) {
       a.preventDefault()
 
-      let name = document.getElementById('signup-name').value
+      // let name = document.getElementById('signup-name').value
       let userEmail = document.getElementById('signup-email').value
       let userPassword = document.getElementById('signup-password').value
 
-      console.log(name)
+      // console.log(name)
       console.log(userEmail)
       console.log(userPassword)
 
-      if (name == '' || userEmail == '' || userPassword == '') {
+      if (userEmail == '' || userPassword == '') {
         console.log('error')
       } else {
-        const { data, error } = await supabase
+        /* const { data, error } = await supabase
           .from('user_logins')
-          .insert([{ email: userEmail, password: userPassword }])
+          .insert([{ email: userEmail, password: userPassword }]) */
 
-        /* let { data, error } = await supabase.auth.signUp({
+        let { data, error } = await supabase.auth.signUp({
           email: userEmail,
           password: userPassword
-        }) */
+        })
       }
     }
   }
@@ -40,7 +39,7 @@ export default {
 <template>
   <main>
     <form class="signup-card">
-      <div class="name-inputs">
+      <!-- <div class="name-inputs">
         <div class="input">
           <label for="first-name">First Name</label>
           <input type="text" id="signup-name" placeholder="name" required />
@@ -50,16 +49,16 @@ export default {
           <label for="last-name">Last Name</label>
           <input type="text" id="signup-name" placeholder="name" required />
         </div>
-      </div>
+      </div> -->
 
       <div class="input">
         <label for="email">Email</label>
-        <input type="text" id="signup-email" placeholder="email" required />
+        <input type="email" id="signup-email" placeholder="email" />
       </div>
 
       <div class="input">
         <label for="password">Password</label>
-        <input type="text" id="signup-password" placeholder="password" required />
+        <input type="password" id="signup-password" placeholder="password" />
       </div>
 
       <input type="submit" value="Sign Up" id="signup-submit" @click="signup" />
