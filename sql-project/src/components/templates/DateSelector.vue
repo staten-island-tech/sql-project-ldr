@@ -20,18 +20,9 @@ export default {
       console.log(this.dateTime)
       let date = this.dateTime.replace('T', ' ')
       console.log(date)
-      let dateOffset = date + ' +0000'
-      let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
-      console.log(timezone)
-      let finalDate = this.convertTimezones(dateOffset, timezone)
+      let finalDate = date + '+00'
       console.log(finalDate)
-    },
-    convertTimezones: function (date, tzString) {
-      return new Date(
-        (typeof date === 'string' ? new Date(date) : date).toLocaleString('en-US', {
-          timeZone: tzString
-        })
-      )
+      this.$emit('updateDate', finalDate)
     }
   }
 }
