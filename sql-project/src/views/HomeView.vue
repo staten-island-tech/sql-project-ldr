@@ -8,14 +8,34 @@ const supabase = createClient(supabaseUrl, supabaseKey)
 
 export default {
   methods: {
+    async login(a) {
+      a.preventDefault()
+
+      let userEmail = document.getElementById('email').value
+      let userPassword = document.getElementById('password').value
+
+      console.log(userEmail)
+      console.log(userPassword)
+
+      if (userEmail == '' || userPassword == '') {
+        console.log('error')
+      } else {
+        /* const { data, error } = await supabase
+          .from('user_logins')
+          .insert([{ email: userEmail, password: userPassword }]) */
+
+        let { data, error } = await supabase.auth.signInWithPassword({
+          email: userEmail,
+          password: userPassword
+        })
+      }
+    },
     async signup(a) {
       a.preventDefault()
 
-      // let name = document.getElementById('signup-name').value
       let userEmail = document.getElementById('signup-email').value
       let userPassword = document.getElementById('signup-password').value
 
-      // console.log(name)
       console.log(userEmail)
       console.log(userPassword)
 
@@ -38,38 +58,56 @@ export default {
 
 <template>
   <main>
-    <form class="signup-card">
-      <!-- <div class="name-inputs">
-        <div class="input">
-          <label for="first-name">First Name</label>
-          <input type="text" id="signup-name" placeholder="name" required />
+    <div class="login-section">
+      <h1>Login</h1>
+
+      <form class="login form">
+        <div class="email">
+          <input type="email" placeholder="Email" id="email" />
         </div>
 
-        <div class="input">
-          <label for="last-name">Last Name</label>
-          <input type="text" id="signup-name" placeholder="name" required />
+        <div class="password">
+          <input type="password" placeholder="Password" id="password" />
         </div>
-      </div> -->
 
+        <input type="submit" value="Login" id="login" @click="login" />
+      </form>
+
+      <div class="signup-instead">
+        <span>Don't have an account? <a href="#" class="signup-link">Sign Up</a></span>
+      </div>
+    </div>
+
+    <!-- <form class="signup-form">
       <div class="input">
-        <label for="email">Email</label>
-        <input type="email" id="signup-email" placeholder="email" />
+        <input type="email" placeholder="Email" id="signup-email" />
       </div>
 
       <div class="input">
-        <label for="password">Password</label>
-        <input type="password" id="signup-password" placeholder="password" />
+        <input type="password" placeholder="Password" id="signup-password" />
       </div>
 
       <input type="submit" value="Sign Up" id="signup-submit" @click="signup" />
-    </form>
+    </form> -->
   </main>
 </template>
 
 <style scoped>
-.input {
+.login-section {
+  height: 50vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  width: 10rem;
+  align-items: center;
+  justify-content: center;
+}
+h1 {
+  font-weight: 600;
+  text-align: center;
+}
+input {
+  width: 15rem;
+  padding: 5px;
+  margin-bottom: 1rem;
 }
 </style>
