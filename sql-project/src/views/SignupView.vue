@@ -28,20 +28,9 @@ export default {
         console.log(data.email)
       }
     }
-  },
+  },}
 
-methods:{
-  async  login(){
 
-    let userEmail = document.getElementById('signup-email').value
-      let userPassword = document.getElementById('signup-password').value
-  },
-  async function signInWithEmail() {
-  const { data, error } = await supabase.auth.signInWithPassword({
-    email: 'example@email.com',
-    password: 'example-password',
-  }
-  )}}}
 </script>
 
 <template>
@@ -56,7 +45,7 @@ methods:{
       </div>
 
       <input type="submit" value="Sign Up" id="signup-submit" @click="signup" />
-      <input type="submit" value="Login" id="Login-submit" @click="login" />
+     
     </form>
   </main>
 
