@@ -1,6 +1,7 @@
 <script>
 export default {
   name: 'CheckBoxes',
+  emits: ['updateCheckboxes'],
   data() {
     return {
       malePetsitter: false,
@@ -52,6 +53,6 @@ export default {
       <input type="checkbox" v-model="femalePet" name="femalePet" />
       <label for="femalePet">Female pet:</label>
     </div>
-    <button @click="recordData">eeee</button>
+    <button @click="recordData">Update:</button>
   </div>
 </template>

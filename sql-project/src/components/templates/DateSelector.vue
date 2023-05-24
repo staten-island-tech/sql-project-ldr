@@ -15,6 +15,7 @@ export default {
       dateTime: ''
     }
   },
+  emits: ['updateDate'],
   methods: {
     e: function () {
       console.log(this.dateTime)
