@@ -12,25 +12,20 @@ export default {
     async signup(a) {
       a.preventDefault()
 
-      // let name = document.getElementById('signup-name').value
       let userEmail = document.getElementById('signup-email').value
       let userPassword = document.getElementById('signup-password').value
 
-      // console.log(name)
       console.log(userEmail)
       console.log(userPassword)
 
-      if (userEmail == '' || userPassword == '') {
+      if (userEmail === '' || userPassword === '') {
         console.log('error')
       } else {
-        /* const { data, error } = await supabase
-          .from('user_logins')
-          .insert([{ email: userEmail, password: userPassword }]) */
-
         let { data, error } = await supabase.auth.signUp({
           email: userEmail,
           password: userPassword
         })
+        console.log(data.email)
       }
     }
   },
@@ -51,27 +46,13 @@ methods:{
 
 <template>
   <main>
-    <form class="signup-card">
-      <!-- <div class="name-inputs">
-        <div class="input">
-          <label for="first-name">First Name</label>
-          <input type="text" id="signup-name" placeholder="name" required />
-        </div>
-
-        <div class="input">
-          <label for="last-name">Last Name</label>
-          <input type="text" id="signup-name" placeholder="name" required />
-        </div>
-      </div> -->
-
-      <div class="input">
-        <label for="email">Email</label>
-        <input type="email" id="signup-email" placeholder="email" />
+    <form class="signup-form">
+      <div class="email">
+        <input type="email" placeholder="Email" id="email" />
       </div>
 
-      <div class="input">
-        <label for="password">Password</label>
-        <input type="password" id="signup-password" placeholder="password" />
+      <div class="password">
+        <input type="password" placeholder="Password" id="password" />
       </div>
 
       <input type="submit" value="Sign Up" id="signup-submit" @click="signup" />
@@ -86,9 +67,48 @@ methods:{
 
 
 <style scoped>
-.input {
+.signup-form {
+  height: 50vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  width: 10rem;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#email,
+#password {
+  width: 17.5rem;
+  padding: 10px;
+  margin-bottom: 0.85rem;
+}
+
+#email:invalid {
+  border: 2px solid red;
+  animation: shake 0.2s 2;
+}
+@keyframes shake {
+  25% {
+    translate: 6px 0;
+  }
+  50% {
+    translate: -6px 0;
+  }
+  75% {
+    translate: 6px 0;
+  }
+}
+
+#login {
+  width: 17.5rem;
+  padding: 5px;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 </style>
