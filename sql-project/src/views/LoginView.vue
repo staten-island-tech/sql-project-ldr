@@ -26,25 +26,6 @@ export default {
         })
         console.log(data)
       }
-    },
-    async signup(a) {
-      a.preventDefault()
-
-      let userEmail = document.getElementById('signup-email').value
-      let userPassword = document.getElementById('signup-password').value
-
-      console.log(userEmail)
-      console.log(userPassword)
-
-      if (userEmail === '' || userPassword === '') {
-        console.log('error')
-      } else {
-        let { data, error } = await supabase.auth.signUp({
-          email: userEmail,
-          password: userPassword
-        })
-        console.log(data.email)
-      }
     }
   }
 }
@@ -71,18 +52,6 @@ export default {
         <span>Don't have an account? <a :to="signupPage" class="signup-link">Sign Up</a></span>
       </div>
     </div>
-
-    <!-- <form class="signup-form">
-      <div class="input">
-        <input type="email" placeholder="Email" id="signup-email" />
-      </div>
-
-      <div class="input">
-        <input type="password" placeholder="Password" id="signup-password" />
-      </div>
-
-      <input type="submit" value="Sign Up" id="signup-submit" @click="signup" />
-    </form> -->
   </main>
 </template>
 
