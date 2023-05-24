@@ -24,6 +24,7 @@ export default {
           email: userEmail,
           password: userPassword
         })
+        console.log(data)
       }
     },
     async signup(a) {
@@ -42,6 +43,7 @@ export default {
           email: userEmail,
           password: userPassword
         })
+        console.log(data.email)
       }
     }
   }
@@ -105,6 +107,22 @@ h1 {
   width: 17.5rem;
   padding: 10px;
   margin-bottom: 0.85rem;
+}
+
+#email:invalid {
+  border: 2px solid red;
+  animation: shake 0.2s 2;
+}
+@keyframes shake {
+  25% {
+    translate: 6px 0;
+  }
+  50% {
+    translate: -6px 0;
+  }
+  75% {
+    translate: 6px 0;
+  }
 }
 
 #login {
