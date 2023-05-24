@@ -17,13 +17,9 @@ export default {
       console.log(userEmail)
       console.log(userPassword)
 
-      if (userEmail == '' || userPassword == '') {
+      if (userEmail === '' || userPassword === '') {
         console.log('error')
       } else {
-        /* const { data, error } = await supabase
-          .from('user_logins')
-          .insert([{ email: userEmail, password: userPassword }]) */
-
         let { data, error } = await supabase.auth.signInWithPassword({
           email: userEmail,
           password: userPassword
@@ -39,13 +35,9 @@ export default {
       console.log(userEmail)
       console.log(userPassword)
 
-      if (userEmail == '' || userPassword == '') {
+      if (userEmail === '' || userPassword === '') {
         console.log('error')
       } else {
-        /* const { data, error } = await supabase
-          .from('user_logins')
-          .insert([{ email: userEmail, password: userPassword }]) */
-
         let { data, error } = await supabase.auth.signUp({
           email: userEmail,
           password: userPassword
@@ -74,7 +66,7 @@ export default {
       </form>
 
       <div class="signup-instead">
-        <span>Don't have an account? <a href="#" class="signup-link">Sign Up</a></span>
+        <span>Don't have an account? <a :to="signupPage" class="signup-link">Sign Up</a></span>
       </div>
     </div>
 
@@ -101,13 +93,24 @@ export default {
   align-items: center;
   justify-content: center;
 }
+
 h1 {
   font-weight: 600;
   text-align: center;
-}
-input {
-  width: 15rem;
-  padding: 5px;
   margin-bottom: 1rem;
+}
+
+#email,
+#password {
+  width: 17.5rem;
+  padding: 10px;
+  margin-bottom: 0.85rem;
+}
+
+#login {
+  width: 17.5rem;
+  padding: 5px;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 </style>
