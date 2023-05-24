@@ -24,7 +24,6 @@ export default {
           email: userEmail,
           password: userPassword
         })
-        console.log(data)
       }
     }
   }
@@ -49,7 +48,7 @@ export default {
       </form>
 
       <div class="signup-instead">
-        <span>Don't have an account? <a :to="signupPage" class="signup-link">Sign Up</a></span>
+        <span>Don't have an account? <a href="signupPage" class="signup-link">Sign Up</a></span>
       </div>
     </div>
   </main>
@@ -57,7 +56,7 @@ export default {
 
 <style scoped>
 .login-section {
-  height: 50vh;
+  height: auto;
   width: 100%;
   display: flex;
   flex-direction: column;
