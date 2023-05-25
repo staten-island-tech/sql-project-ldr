@@ -6,10 +6,10 @@ export const useStore = defineStore('storeId', {
   state: () => {
     return {
       // all these properties will have their type inferred automatically
-      user: 'Eduardo',
-      signedIn: true,
-      appointments: [],
-      hasChanged: true
+      user: '',
+      signedIn: false,
+      signedOut: true,
+      appointments: []
     }
   }
 })

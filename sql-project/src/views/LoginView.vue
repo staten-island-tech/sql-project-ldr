@@ -20,7 +20,7 @@ export default {
       if (userEmail === '' || userPassword === '') {
         console.log('error')
       } else {
-        let { data, error } = await supabase.auth.signInWithPassword({
+        await supabase.auth.signInWithPassword({
           email: userEmail,
           password: userPassword
         })

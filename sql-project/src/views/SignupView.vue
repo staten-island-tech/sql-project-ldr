@@ -12,15 +12,23 @@ export default {
       a.preventDefault()
 
       let userEmail = document.getElementById('email').value
-      let userPassword = document.getElementById('password-confirm').value
+      let userPassword = document.getElementById('password').value
+      let userPasswordConfirmed = document.getElementById('password-confirm').value
+
+      if (userPassword == userPasswordConfirmed) {
+        console.log(true)
+      }
+      //let password = password
 
       console.log(userEmail)
       console.log(userPassword)
+      console.log(userPasswordConfirmed)
+      //console.log(password)
 
       if (userEmail === '' || userPassword === '') {
         console.log('error')
       } else {
-        let { data, error } = await supabase.auth.signUp({
+        await supabase.auth.signUp({
           email: userEmail,
           password: userPassword
         })
@@ -37,7 +45,7 @@ export default {
 
       <form class="signup-form">
         <div class="email">
-          <input type="email" placeholder="Email" id="email" required />
+          <input type="email" placeholder="Email" id="email" />
         </div>
 
         <div class="password">
