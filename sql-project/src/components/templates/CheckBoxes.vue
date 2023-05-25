@@ -16,7 +16,7 @@ export default {
       let petGender = this.sort(this.malePet, this.femalePet)
       console.log(sitterPreference)
       console.log(petGender)
-      this.$emit('updateCheckboxes', { sitterPreference, petGender })
+      this.$emit('updateCheckboxes', sitterPreference, petGender)
     },
     sort: function (male, female) {
       console.log(male)

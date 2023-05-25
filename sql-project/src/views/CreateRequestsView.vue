@@ -19,10 +19,12 @@ export default {
       console.log(sitterPreference, petGender)
       this.petGender = petGender
       this.sitterGender = sitterPreference
+      console.log(this.petGender)
+      console.log(this.sitterGender)
     },
     dates: function (date) {
       console.log(date)
-      this.date = date
+      this.date = date.toString()
     }
   }
 }
@@ -49,8 +51,8 @@ export default {
           <h3>{{ date }}</h3>
         </div>
         <div class="genders">
-          <h3 class="petGender">{{ petGender }}</h3>
-          <h3 class="sitterGender">{{ sitterGender }}</h3>
+          <h3 class="petGender">pet Gender: {{ petGender }}</h3>
+          <h3 class="sitterGender">Sitter Gender Preference: {{ sitterGender }}</h3>
         </div>
       </div>
     </div>
