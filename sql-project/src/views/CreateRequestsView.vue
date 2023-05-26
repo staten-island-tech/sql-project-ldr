@@ -3,7 +3,7 @@ import DateSelector from '../components/templates/DateSelector.vue'
 import CheckBoxes from '../components/templates/CheckBoxes.vue'
 export default {
   components: { DateSelector, CheckBoxes },
-  emits: ['updateCheckboxes', 'updateDate'],
+  emits: ['updateGenders', 'updateDate', 'updatePets'],
   data() {
     return {
       date: '',
@@ -25,6 +25,9 @@ export default {
     dates: function (date) {
       console.log(date)
       this.date = date.toString()
+    },
+    petSpecies: function (species) {
+      this.pet = species
     }
   }
 }
@@ -38,7 +41,7 @@ export default {
         <DateSelector @updateDate="dates" />
       </div>
       <div class="checkboxes">
-        <CheckBoxes @updateCheckboxes="genders" />
+        <CheckBoxes @updateGenders="genders" @updatePets="petSpecies" />
       </div>
       <div class="submit">
         <button class="submit" v-on:click="submitted">Submit</button>
@@ -50,8 +53,11 @@ export default {
         <div class="date">
           <h3>{{ date }}</h3>
         </div>
+        <div class="pet">
+          <h3>Pet Species: {{ pet }}</h3>
+        </div>
         <div class="genders">
-          <h3 class="petGender">pet Gender: {{ petGender }}</h3>
+          <h3 class="petGender">Pet Gender: {{ petGender }}</h3>
           <h3 class="sitterGender">Sitter Gender Preference: {{ sitterGender }}</h3>
         </div>
       </div>
