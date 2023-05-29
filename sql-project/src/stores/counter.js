@@ -1,12 +1,15 @@
-import { ref, computed } from 'vue'
+// import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useCounterStore = defineStore('counter', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
+export const useStore = defineStore('storeId', {
+  // arrow function recommended for full type inference
+  state: () => {
+    return {
+      // all these properties will have their type inferred automatically
+      user: 'e',
+      signedIn: false,
+      signedOut: true,
+      appointments: []
+    }
   }
-
-  return { count, doubleCount, increment }
 })

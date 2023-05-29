@@ -1,24 +1,31 @@
 <script>
 export default {
   name: 'CheckBoxes',
-  emits: ['updateCheckboxes'],
+  emits: ['updateGenders', 'updatePets'],
   data() {
     return {
       malePetsitter: false,
       femalePetsitter: false,
       malePet: false,
-      femalePet: false
+      femalePet: false,
+      dogPet: false,
+      catPet: false
     }
   },
   methods: {
-    recordData: function () {
-      let sitterPreference = this.sort(this.malePetsitter, this.femalePetsitter)
-      let petGender = this.sort(this.malePet, this.femalePet)
+    recordGender: function () {
+      let sitterPreference = this.sortGender(this.malePetsitter, this.femalePetsitter)
+      let petGender = this.sortGender(this.malePet, this.femalePet)
       console.log(sitterPreference)
       console.log(petGender)
-      this.$emit('updateCheckboxes', sitterPreference, petGender)
+      this.$emit('updateGenders', sitterPreference, petGender)
     },
-    sort: function (male, female) {
+    recordPet: function () {
+      let pet = this.sortPet(this.dogPet, this.catPet)
+      console.log(pet)
+      this.$emit('updatePets', pet)
+    },
+    sortGender: function (male, female) {
       console.log(male)
       console.log(female)
       if (male === true && female === true) {
@@ -36,6 +43,18 @@ export default {
       } else {
         console.log('error')
       }
+    },
+    sortPet: function (dog, cat) {
+      let pet = 'invalid pet species, please input cat or dog.'
+      if (dog === true && cat === false) {
+        let pet = 'Dog'
+        return pet
+      } else if (dog === false && cat === true) {
+        let pet = 'Cat'
+        return pet
+      } else {
+        return pet
+      }
     }
   }
 }
@@ -43,16 +62,27 @@ export default {
 
 <template>
   <div class="main">
-    <div class="checkbox">
-      <input type="checkbox" v-model="malePetsitter" name="malePetsitter" />
-      <label for="malePetsitter">Male petsitter:</label>
-      <input type="checkbox" v-model="femalePetsitter" name="femalePetsitter" />
-      <label for="femalePetsitter">Female petsitter:</label>
-      <input type="checkbox" v-model="malePet" name="malePet" />
-      <label for="malePet">Male pet:</label>
-      <input type="checkbox" v-model="femalePet" name="femalePet" />
-      <label for="femalePet">Female pet:</label>
+    <div class="genders">
+      <div class="checkbox">
+        <input type="checkbox" v-model="malePetsitter" name="malePetsitter" />
+        <label for="malePetsitter">Male petsitter:</label>
+        <input type="checkbox" v-model="femalePetsitter" name="femalePetsitter" />
+        <label for="femalePetsitter">Female petsitter:</label>
+        <input type="checkbox" v-model="malePet" name="malePet" />
+        <label for="malePet">Male pet:</label>
+        <input type="checkbox" v-model="femalePet" name="femalePet" />
+        <label for="femalePet">Female pet:</label>
+      </div>
+      <button @click="recordGender">Update:</button>
     </div>
-    <button @click="recordData">Update:</button>
+    <div class="petSpecies">
+      <div class="checkbox">
+        <input type="checkbox" v-model="dogPet" name="dogPet" />
+        <label for="dogPet">Dog:</label>
+        <input type="checkbox" v-model="catPet" name="catPet" />
+        <label for="catPet">Cat:</label>
+      </div>
+      <button @click="recordPet">Update:</button>
+    </div>
   </div>
 </template>
