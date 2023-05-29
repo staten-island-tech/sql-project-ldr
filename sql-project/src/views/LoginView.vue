@@ -24,13 +24,16 @@ export default {
           email: userEmail,
           password: userPassword
         })
-        /* let { data, error } = await supabase.from('users').select('user_id')
-        console.log(data) */
 
-        const {
+        let {
           data: { user }
         } = await supabase.auth.getUser()
-        console.log(user)
+        console.log(user.id)
+
+        //await supabase.from('logins').insert([{ user_id: user.id, email: userEmail }])
+
+        let { data2: logins } = await supabase.from('logins').select('user_id')
+        console.log(logins)
       }
     }
   }

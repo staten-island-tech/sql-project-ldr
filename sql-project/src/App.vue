@@ -8,8 +8,8 @@ const supabaseKey =
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 async function sm() {
-  let { data: user_logins, error } = await supabase.from('user_logins').select('user_id, email')
-  console.log(user_logins)
+  let { data: logins } = await supabase.from('logins').select('user_id, email')
+  console.log(logins)
 }
 sm()
 </script>
