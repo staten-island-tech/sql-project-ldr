@@ -35,9 +35,13 @@ export default {
         })
       }
     }
-  },}
+  }
+  ,}
 
-
+const{
+  data: { user } }
+  =await supabase.auth.getUser()
+console.log(user.id)
 </script>
 
 <template>
@@ -50,11 +54,6 @@ export default {
           <input type="email" placeholder="Email" id="email" />
         </div>
 
-<<<<<<< HEAD
-      <input type="submit" value="Sign Up" id="signup-submit" @click="signup" />
-     
-    </form>
-=======
         <div class="password">
           <input type="password" placeholder="Password" id="password" />
         </div>
@@ -69,7 +68,6 @@ export default {
         <span>Already have an account? <a href="loginPage" class="login-link">Login</a></span>
       </div>
     </div>
->>>>>>> ryan
   </main>
 
   

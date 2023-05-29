@@ -27,7 +27,12 @@ export default {
       }
     }
   }
+  
 }
+const{
+  data: { user } }
+  = await supabase.auth.getUser()
+console.log(user)
 </script>
 
 <template>

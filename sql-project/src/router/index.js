@@ -24,11 +24,7 @@ const router = createRouter({
     },
     {
       path: '/signupPage',
-<<<<<<< HEAD
-      name: 'signup page',
-=======
       name: 'signupPage',
->>>>>>> ryan
       component: () => import('../views/SignupView.vue')
     }
   ]
