@@ -33,8 +33,6 @@ export default {
           email: userEmail,
           password: userPassword
         })
-        /* let { data, error } = await supabase.from('users').select('user_id')
-        console.log(data) */
       }
     }
   },}
