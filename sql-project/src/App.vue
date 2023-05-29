@@ -1,5 +1,17 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = 'https://tzithwsneecztaewiwhj.supabase.co'
+const supabaseKey =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6aXRod3NuZWVjenRhZXdpd2hqIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2Mzk5MjksImV4cCI6MTk5OTIxNTkyOX0.YeSE7Cuk2UX5jD6haxAnmM_-RdlssSRtowQH9ejl_1w'
+const supabase = createClient(supabaseUrl, supabaseKey)
+
+async function sm() {
+  let { data: user_logins, error } = await supabase.from('user_logins').select('user_id, email')
+  console.log(user_logins)
+}
+sm()
 </script>
 
 <template>
@@ -7,7 +19,7 @@ import { RouterLink, RouterView } from 'vue-router'
     <header>
       <div class="wrapper">
         <nav>
-          <RouterLink to="/">Home</RouterLink>
+          <RouterLink to="/loginPage">Login</RouterLink>
           <RouterLink to="/requests">About</RouterLink>
           <RouterLink to="/requestlog">Current Requests</RouterLink>
         </nav>

@@ -12,20 +12,29 @@ export default {
     async signup(a) {
       a.preventDefault()
 
-      let userEmail = document.getElementById('signup-email').value
-      let userPassword = document.getElementById('signup-password').value
+      let userEmail = document.getElementById('email').value
+      let userPassword = document.getElementById('password').value
+      let userPasswordConfirmed = document.getElementById('password-confirm').value
+
+      if (userPassword == userPasswordConfirmed) {
+        console.log(true)
+      }
+      //let password = password
 
       console.log(userEmail)
       console.log(userPassword)
+      console.log(userPasswordConfirmed)
+      //console.log(password)
 
       if (userEmail === '' || userPassword === '') {
         console.log('error')
       } else {
-        let { data, error } = await supabase.auth.signUp({
+        await supabase.auth.signUp({
           email: userEmail,
           password: userPassword
         })
-        console.log(data.email)
+        /* let { data, error } = await supabase.from('users').select('user_id')
+        console.log(data) */
       }
     }
   },}
@@ -35,18 +44,34 @@ export default {
 
 <template>
   <main>
-    <form class="signup-form">
-      <div class="email">
-        <input type="email" placeholder="Email" id="email" />
-      </div>
+    <div class="signup-section">
+      <h1>Sign Up</h1>
 
-      <div class="password">
-        <input type="password" placeholder="Password" id="password" />
-      </div>
+      <form class="signup-form">
+        <div class="email">
+          <input type="email" placeholder="Email" id="email" />
+        </div>
 
+<<<<<<< HEAD
       <input type="submit" value="Sign Up" id="signup-submit" @click="signup" />
      
     </form>
+=======
+        <div class="password">
+          <input type="password" placeholder="Password" id="password" />
+        </div>
+        <div class="password">
+          <input type="password" placeholder="Confirm Password" id="password-confirm" />
+        </div>
+
+        <input type="submit" value="Sign Up" id="signup" @click="signup" />
+      </form>
+
+      <div class="login-instead">
+        <span>Already have an account? <a href="loginPage" class="login-link">Login</a></span>
+      </div>
+    </div>
+>>>>>>> ryan
   </main>
 
   
@@ -56,8 +81,8 @@ export default {
 
 
 <style scoped>
-.signup-form {
-  height: 50vh;
+.signup-section {
+  height: auto;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -72,7 +97,8 @@ h1 {
 }
 
 #email,
-#password {
+#password,
+#password-confirm {
   width: 17.5rem;
   padding: 10px;
   margin-bottom: 0.85rem;
@@ -94,7 +120,7 @@ h1 {
   }
 }
 
-#login {
+#signup {
   width: 17.5rem;
   padding: 5px;
   margin-top: 0.25rem;

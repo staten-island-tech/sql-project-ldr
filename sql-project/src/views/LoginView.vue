@@ -20,11 +20,17 @@ export default {
       if (userEmail === '' || userPassword === '') {
         console.log('error')
       } else {
-        let { data, error } = await supabase.auth.signInWithPassword({
+        await supabase.auth.signInWithPassword({
           email: userEmail,
           password: userPassword
         })
-        console.log(data)
+        /* let { data, error } = await supabase.from('users').select('user_id')
+        console.log(data) */
+
+        const {
+          data: { user }
+        } = await supabase.auth.getUser()
+        console.log(user)
       }
     }
   }
@@ -49,7 +55,7 @@ export default {
       </form>
 
       <div class="signup-instead">
-        <span>Don't have an account? <a :to="signupPage" class="signup-link">Sign Up</a></span>
+        <span>Don't have an account? <a href="signupPage" class="signup-link">Sign Up</a></span>
       </div>
     </div>
   </main>
@@ -57,7 +63,7 @@ export default {
 
 <style scoped>
 .login-section {
-  height: 50vh;
+  height: auto;
   width: 100%;
   display: flex;
   flex-direction: column;
