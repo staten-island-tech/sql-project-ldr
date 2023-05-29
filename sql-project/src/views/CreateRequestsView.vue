@@ -1,6 +1,7 @@
 <script>
 import DateSelector from '../components/templates/DateSelector.vue'
 import CheckBoxes from '../components/templates/CheckBoxes.vue'
+import { useStore } from '@/stores/counter'
 import { createClient } from '@supabase/supabase-js'
 const supabaseUrl = 'https://tzithwsneecztaewiwhj.supabase.co'
 const supabaseKey =
@@ -14,14 +15,14 @@ export default {
       date: '',
       petGender: '',
       sitterGender: '',
-      pet: ''
-      //user: userStore(),
+      pet: '',
+      user: useStore()
     }
   },
   methods: {
     submitted: async function () {
       let pet = this.checkPet(this.pet)
-      const { error } = await supabase.from(pet).insert({
+      const { data, error } = await supabase.from(pet).insert({
         customerId: '',
         time_called: new Date(),
         appointed_time: this.date,
@@ -29,7 +30,7 @@ export default {
         todo_list: '',
         pet_breed: '',
         preference_sitter_gender: this.sitterGender,
-        customer_username: 'e'
+        customer_username: this.user.user
       })
     },
     genders: function (sitterPreference, petGender) {
