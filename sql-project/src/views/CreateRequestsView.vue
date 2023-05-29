@@ -1,6 +1,11 @@
 <script>
 import DateSelector from '../components/templates/DateSelector.vue'
 import CheckBoxes from '../components/templates/CheckBoxes.vue'
+import { createClient } from '@supabase/supabase-js'
+const supabaseUrl = 'https://tzithwsneecztaewiwhj.supabase.co'
+const supabaseKey =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6aXRod3NuZWVjenRhZXdpd2hqIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2Mzk5MjksImV4cCI6MTk5OTIxNTkyOX0.YeSE7Cuk2UX5jD6haxAnmM_-RdlssSRtowQH9ejl_1w'
+const supabase = createClient(supabaseUrl, supabaseKey)
 export default {
   components: { DateSelector, CheckBoxes },
   emits: ['updateGenders', 'updateDate', 'updatePets'],
@@ -8,12 +13,24 @@ export default {
     return {
       date: '',
       petGender: '',
-      sitterGender: ''
+      sitterGender: '',
+      pet: ''
+      //user: userStore(),
     }
   },
   methods: {
     submitted: async function () {
-      console.log('yes')
+      let pet = this.checkPet(this.pet)
+      const { error } = await supabase.from(pet).insert({
+        customerId: '',
+        time_called: new Date(),
+        appointed_time: this.date,
+        pet_gender: this.petGender,
+        todo_list: '',
+        pet_breed: '',
+        preference_sitter_gender: this.sitterGender,
+        customer_username: 'e'
+      })
     },
     genders: function (sitterPreference, petGender) {
       console.log(sitterPreference, petGender)
@@ -27,7 +44,17 @@ export default {
       this.date = date.toString()
     },
     petSpecies: function (species) {
+      console.log(species)
       this.pet = species
+    },
+    checkPet: function (pet) {
+      if (pet === 'Dog sitters') {
+        return 'dog'
+      } else if (pet === 'Cat sitters') {
+        return 'cat'
+      } else {
+        return 'error'
+      }
     }
   }
 }
