@@ -16,10 +16,10 @@ export const useStore = defineStore('storeId', {
       signedOut: true,
       appointments: []
     }
+  },
+  actions: {
+    async register(user) {
+      await supabase.auth.getUser()
+    }
   }
-},
-actions: {
-  async register(user) {
-     await supabase.auth.getUser();
-  }},
-)
+})
