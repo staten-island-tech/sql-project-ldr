@@ -1,14 +1,16 @@
 <script>
 import DateSelector from '../components/templates/DateSelector.vue'
 import CheckBoxes from '../components/templates/CheckBoxes.vue'
+import InputBar from '../components/templates/InputBars.vue'
 import { useStore } from '@/stores/counter'
 import { createClient } from '@supabase/supabase-js'
+import InputBarsVue from '../components/templates/InputBars.vue'
 const supabaseUrl = 'https://tzithwsneecztaewiwhj.supabase.co'
 const supabaseKey =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6aXRod3NuZWVjenRhZXdpd2hqIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2Mzk5MjksImV4cCI6MTk5OTIxNTkyOX0.YeSE7Cuk2UX5jD6haxAnmM_-RdlssSRtowQH9ejl_1w'
 const supabase = createClient(supabaseUrl, supabaseKey)
 export default {
-  components: { DateSelector, CheckBoxes },
+  components: { DateSelector, CheckBoxes, InputBar },
   emits: ['updateGenders', 'updateDate', 'updatePets'],
   data() {
     return {
@@ -22,7 +24,7 @@ export default {
   methods: {
     submitted: async function () {
       let pet = this.checkPet(this.pet)
-      const { data, error } = await supabase.from(pet).insert({
+      const { error } = await supabase.from(pet).insert({
         customerId: '',
         time_called: new Date(),
         appointed_time: this.date,
@@ -70,6 +72,9 @@ export default {
       </div>
       <div class="checkboxes">
         <CheckBoxes @updateGenders="genders" @updatePets="petSpecies" />
+      </div>
+      <div class="inputBar">
+        <InputBar />
       </div>
       <div class="submit">
         <button class="submit" v-on:click="submitted">Submit</button>
