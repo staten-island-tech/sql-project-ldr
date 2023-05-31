@@ -6,6 +6,26 @@ const supabaseKey =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6aXRod3NuZWVjenRhZXdpd2hqIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2Mzk5MjksImV4cCI6MTk5OTIxNTkyOX0.YeSE7Cuk2UX5jD6haxAnmM_-RdlssSRtowQH9ejl_1w'
 const supabase = createClient(supabaseUrl, supabaseKey)
 
+async function signUp(supabase, userEmail, userPassword) {
+  try {
+    await supabase.auth.signUp({
+      email: userEmail,
+      password: userPassword
+    })
+    await supabase.auth.signInWithPassword({
+      email: userEmail,
+      password: userPassword
+    })
+
+    let {
+      data: { user }
+    } = await supabase.auth.getUser()
+    console.log(user.id)
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 export default {
   methods: {
     async signup(a) {
@@ -26,17 +46,9 @@ export default {
       //console.log(password)
 
       if (userEmail === '' || userPassword === '') {
-        console.log('error')
+        console.error('error')
       } else {
-        await supabase.auth.signUp({
-          email: userEmail,
-          password: userPasswordConfirmed
-        })
-
-        let {
-          data: { user }
-        } = await supabase.auth.getUser()
-        console.log(user.id)
+        signUp(supabase, userEmail, userPasswordConfirmed)
       }
     }
   }

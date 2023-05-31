@@ -5,7 +5,39 @@ const supabaseUrl = 'https://tzithwsneecztaewiwhj.supabase.co'
 const supabaseKey =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6aXRod3NuZWVjenRhZXdpd2hqIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2Mzk5MjksImV4cCI6MTk5OTIxNTkyOX0.YeSE7Cuk2UX5jD6haxAnmM_-RdlssSRtowQH9ejl_1w'
 const supabase = createClient(supabaseUrl, supabaseKey)
-console.log(supabase)
+
+async function signIn(supabase, userEmail, userPassword) {
+  try {
+    await supabase.auth.signInWithPassword({
+      email: userEmail,
+      password: userPassword
+    })
+
+    let {
+      data: { user }
+    } = await supabase.auth.getUser()
+    console.log(user.id)
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+/* async function two(supabase) {
+  try {
+    
+  } catch (error) {
+    console.error(error)
+  }
+}
+ */
+async function three(supabase) {
+  try {
+    let { data2: logins } = await supabase.from('logins').select('user_id')
+    console.log(logins)
+  } catch (error) {
+    console.error(error)
+  }
+}
 
 export default {
   methods: {
@@ -21,20 +53,13 @@ export default {
       if (userEmail === '' || userPassword === '') {
         console.log('error')
       } else {
-        await supabase.auth.signInWithPassword({
-          email: userEmail,
-          password: userPassword
-        })
+        signIn(supabase, userEmail, userPassword)
 
-        let {
-          data: { user }
-        } = await supabase.auth.getUser()
-        console.log(user.id)
+        //two(supabase)
 
         //await supabase.from('logins').insert([{ user_id: user.id, email: userEmail }])
 
-        let { data2: logins } = await supabase.from('logins').select('user_id')
-        console.log(logins)
+        three(supabase)
       }
     }
   }
