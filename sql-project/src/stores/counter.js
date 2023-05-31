@@ -17,9 +17,9 @@ export const useStore = defineStore('storeId', {
       appointments: []
     }
   },
-  actions: {
+  /* actions: {
     async register(user) {
       await supabase.auth.getUser()
     }
-  }
+  } */
 })
