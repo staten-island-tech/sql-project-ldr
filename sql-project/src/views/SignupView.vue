@@ -31,8 +31,13 @@ export default {
       } else {
         await supabase.auth.signUp({
           email: userEmail,
-          password: userPassword
+          password: userPasswordConfirmed
         })
+
+        let {
+          data: { user }
+        } = await supabase.auth.getUser()
+        console.log(user.id)
       }
     }
   }
