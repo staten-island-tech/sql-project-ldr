@@ -60,7 +60,7 @@ export default {
       </form>
 
       <div class="signup-instead">
-        <span>Don't have an account? <a href="signupPage" class="signup-link">Sign Up</a></span>
+      <span>Don't have an account? <a><RouterLink to='/signupPage'>Sign Up</RouterLink></a></span>
       </div>
     </div>
   </main>

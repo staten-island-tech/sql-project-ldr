@@ -43,10 +43,6 @@ export default {
   }
   ,}
 
-const{
-  data: { user } }
-  =await supabase.auth.getUser()
-console.log(user.id)
 </script>
 
 <template>
@@ -71,6 +67,7 @@ console.log(user.id)
 
       <div class="login-instead">
         <span>Already have an account? <a href="loginPage" class="login-link">Login</a></span>
+        <RouterLink to="/loginPage">Already have an account?</RouterLink>
       </div>
     </div>
   </main>
