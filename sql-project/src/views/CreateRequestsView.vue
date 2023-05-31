@@ -18,6 +18,7 @@ export default {
       petGender: '',
       sitterGender: '',
       pet: '',
+      toDo: '',
       user: useStore()
     }
   },
@@ -29,7 +30,7 @@ export default {
         time_called: new Date(),
         appointed_time: this.date,
         pet_gender: this.petGender,
-        todo_list: '',
+        todo_list: this.toDo,
         pet_breed: '',
         preference_sitter_gender: this.sitterGender,
         customer_username: this.user.user
@@ -50,6 +51,10 @@ export default {
       console.log(species)
       this.pet = species
     },
+    tasks: function (tasks) {
+      console.log(tasks)
+      this.toDo = tasks
+    },
     checkPet: function (pet) {
       if (pet === 'Dog sitters') {
         return 'dog'
@@ -64,38 +69,50 @@ export default {
 </script>
 
 <template>
-  <div class="main">
+  <div>
     <div class="header"><h1>This is an about page</h1></div>
-    <div class="requestCreator">
-      <div class="dates">
-        <DateSelector @updateDate="dates" />
-      </div>
-      <div class="checkboxes">
-        <CheckBoxes @updateGenders="genders" @updatePets="petSpecies" />
-      </div>
-      <div class="inputBar">
-        <InputBar />
-      </div>
-      <div class="submit">
-        <button class="submit" v-on:click="submitted">Submit</button>
-      </div>
-    </div>
-    <div class="preview">
-      <h2>This is what we see:</h2>
-      <div class="card">
-        <div class="date">
-          <h3>{{ date }}</h3>
+    <div class="main">
+      <div class="requestCreator">
+        <div class="dates">
+          <DateSelector @updateDate="dates" />
         </div>
-        <div class="pet">
-          <h3>Pet Species: {{ pet }}</h3>
+        <div class="checkboxes">
+          <CheckBoxes @updateGenders="genders" @updatePets="petSpecies" />
         </div>
-        <div class="genders">
-          <h3 class="petGender">Pet Gender: {{ petGender }}</h3>
-          <h3 class="sitterGender">Sitter Gender Preference: {{ sitterGender }}</h3>
+        <div class="inputBar">
+          <InputBar @updateTasks="tasks" />
+        </div>
+        <div class="submit">
+          <button class="submit" v-on:click="submitted">Submit</button>
+        </div>
+      </div>
+      <div class="preview">
+        <h2>This is what we see:</h2>
+        <div class="card">
+          <div class="date">
+            <h3>{{ date }}</h3>
+          </div>
+          <div class="pet">
+            <h3>Pet Species: {{ pet }}</h3>
+          </div>
+          <div class="genders">
+            <h3 class="petGender">Pet Gender: {{ petGender }}</h3>
+            <h3 class="sitterGender">Sitter Gender Preference: {{ sitterGender }}</h3>
+          </div>
+          <div class="tasks">
+            <p class="toDo">{{ toDo }}</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<style></style>
+<style scoped>
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+}
+</style>

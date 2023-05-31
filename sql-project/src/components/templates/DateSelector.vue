@@ -2,7 +2,7 @@
   <div class="main">
     <input type="datetime-local" step="1" id="dateSelector" name="dateTime" v-model="dateTime" />
     <label for="date">Select your date here:</label>
-    <button @click="e">EEEE!EEE</button>
+    <button @click="e">Update Date:</button>
   </div>
 </template>
 
@@ -28,3 +28,12 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+</style>
