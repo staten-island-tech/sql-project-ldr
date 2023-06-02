@@ -1,4 +1,5 @@
 <script>
+import { useAuthStore } from '../stores/counter'
 import { createClient } from '@supabase/supabase-js'
 
 const supabaseUrl = 'https://tzithwsneecztaewiwhj.supabase.co'
@@ -21,6 +22,8 @@ async function signUp(supabase, userEmail, userPassword) {
       data: { user }
     } = await supabase.auth.getUser()
     console.log(user.id)
+
+    await supabase.from('logins').insert([{ user_id: user.id, email: userEmail }])
   } catch (error) {
     console.error(error)
   }
@@ -49,6 +52,7 @@ export default {
         console.error('error')
       } else {
         signUp(supabase, userEmail, userPasswordConfirmed)
+        useAuthStore()
       }
     }
   }
