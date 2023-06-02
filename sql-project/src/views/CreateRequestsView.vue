@@ -16,6 +16,7 @@ export default {
     return {
       date: '',
       petGender: '',
+      breed: '',
       sitterGender: '',
       pet: '',
       toDo: '',
@@ -25,16 +26,18 @@ export default {
   methods: {
     submitted: async function () {
       let pet = this.checkPet(this.pet)
-      const { error } = await supabase.from(pet).insert({
-        customerId: '',
-        time_called: new Date(),
-        appointed_time: this.date,
-        pet_gender: this.petGender,
-        todo_list: this.toDo,
-        pet_breed: '',
-        preference_sitter_gender: this.sitterGender,
-        customer_username: this.user.user
-      })
+      const { data, error } = await supabase.from(pet).insert([
+        {
+          customerId: '34343',
+          appointed_time: this.date,
+          pet_gender: this.petGender,
+          todo_list: this.toDo,
+          pet_breed: 'e',
+          preference_sitter_gender: this.sitterGender,
+          customer_username: this.user.user
+        }
+      ])
+      console.log(this.date, this.petGender, this.toDo, this.sitterGender, this.user.user)
     },
     genders: function (sitterPreference, petGender) {
       console.log(sitterPreference, petGender)
@@ -55,11 +58,15 @@ export default {
       console.log(tasks)
       this.toDo = tasks
     },
+    breed: function (breed) {
+      console.log(breed)
+      this.breed = breed
+    },
     checkPet: function (pet) {
-      if (pet === 'Dog sitters') {
-        return 'dog'
-      } else if (pet === 'Cat sitters') {
-        return 'cat'
+      if (pet === 'Dog') {
+        return 'DogSitters'
+      } else if (pet === 'Cat') {
+        return 'CatSitters'
       } else {
         return 'error'
       }
@@ -80,7 +87,7 @@ export default {
           <CheckBoxes @updateGenders="genders" @updatePets="petSpecies" />
         </div>
         <div class="inputBar">
-          <InputBar @updateTasks="tasks" />
+          <InputBar @updateTasks="tasks" @updateBreed="breed" />
         </div>
         <div class="submit">
           <button class="submit" v-on:click="submitted">Submit</button>
