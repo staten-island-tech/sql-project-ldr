@@ -14,7 +14,7 @@ export default {
     return {
       date: '',
       petGender: '',
-      time_called: this.getDate,
+      time_called: new Date(),
       petBreed: '',
       sitterGender: '',
       pet: '',
@@ -27,8 +27,8 @@ export default {
     onMounted: async function () {
       this.checkUser()
       console.log(await this.user.currentUser)
-      let promise = await this.user.currentUser
-      this.user_id = promise.data
+      this.user_id = await this.user.currentUser
+      console.log(this.user_id)
     },
     checkUser: function () {
       if (useAuthStore().currentUser === null) {
@@ -38,9 +38,10 @@ export default {
     },
     submitted: async function () {
       let pet = this.checkPet(this.pet)
-      const { data, error, defaultToNull } = await supabase.from(pet).insert([
+      const { data, error } = await supabase.from(pet).insert([
         {
-          customerId: this.user_id,
+          primary_key: Math.random(),
+          customer_id: this.user_id,
           time_called: this.time_called,
           appointed_time: this.date,
           pet_gender: this.petGender,
@@ -49,10 +50,16 @@ export default {
           preference_sitter_gender: this.sitterGender
         }
       ])
-      console.log(this.date, this.petGender, this.toDo, this.sitterGender, this.user.currentUser)
-    },
-    getDate: function () {
-      return new Date()
+      console.log(error)
+      console.log(data)
+      console.log(
+        this.user_id,
+        this.time_called,
+        this.date,
+        this.petGender,
+        this.toDo,
+        this.sitterGender
+      )
     },
     genders: function (sitterPreference, petGender) {
       console.log(sitterPreference, petGender)

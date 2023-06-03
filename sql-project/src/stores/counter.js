@@ -15,6 +15,7 @@ export const useAuthStore = defineStore({
 
     return {
       currentUser: null
+      //currentUserTotalRequests: 0
     }
   },
   actions: {
@@ -29,5 +30,13 @@ export const useAuthStore = defineStore({
     isAuthenticated() {
       return !!this.currentUser
     }
+    /*     totalRequests: (state) => {
+        const { data, error } = await supabase
+          .from('logins')
+          .select('total_requests')
+          .eq('user_id', state.currentUser)
+        console.log(error)
+        return (state.currentUserTotalRequests = data)
+    } */
   }
 })

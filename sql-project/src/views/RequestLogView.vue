@@ -8,17 +8,44 @@ const supabaseKey =
 const supabase = createClient(supabaseUrl, supabaseKey)
 export default {
   components: { RequestCard },
-  data() {},
+  data() {
+    return {
+      customer_id: '',
+      user: useAuthStore(),
+      userData: ''
+    }
+  },
   methods: {
+    onMounted: async function () {
+      this.checkUser()
+      this.customer_id = this.user.currentUser
+      this.cardData()
+    },
+    cardData: async function () {
+      let dogRequests = await this.requestGetter('DogSitters')
+      let catRequests = await this.requestGetter('CatSitters')
+      let data = dogRequests.concat(catRequests)
+      this.userData = data
+      console.log(this.userData)
+    },
     checkUser: function () {
       if (useAuthStore().currentUser === null) {
         window.location.href = 'loginpage'
       } else {
       }
+    },
+    requestGetter: async function (table) {
+      const { data, error } = await supabase
+        .from(table)
+        .select('*')
+        .eq('customer_id', this.customer_id)
+      console.log(error)
+      console.log(data)
+      return data
     }
   },
   mounted() {
-    this.checkUser()
+    this.onMounted()
   }
 }
 </script>
