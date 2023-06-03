@@ -2,9 +2,8 @@
 import DateSelector from '../components/templates/DateSelector.vue'
 import CheckBoxes from '../components/templates/CheckBoxes.vue'
 import InputBar from '../components/templates/InputBars.vue'
-import { useStore } from '@/stores/counter'
+import { useAuthStore } from '@/stores/counter'
 import { createClient } from '@supabase/supabase-js'
-import InputBarsVue from '../components/templates/InputBars.vue'
 const supabaseUrl = 'https://tzithwsneecztaewiwhj.supabase.co'
 const supabaseKey =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6aXRod3NuZWVjenRhZXdpd2hqIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2Mzk5MjksImV4cCI6MTk5OTIxNTkyOX0.YeSE7Cuk2UX5jD6haxAnmM_-RdlssSRtowQH9ejl_1w'
@@ -16,28 +15,40 @@ export default {
     return {
       date: '',
       petGender: '',
-      breed: '',
+      time_called: this.getDate,
+      petBreed: '',
       sitterGender: '',
       pet: '',
       toDo: '',
-      user: useStore()
+      user: useAuthStore()
     }
   },
   methods: {
+    onMounted: async function () {
+      const { data, error } = await supabase
+        .from('logins')
+        .select('name, user_id')
+        .eq('name', this.user.currentUser)
+      console.log(data)
+    },
     submitted: async function () {
       let pet = this.checkPet(this.pet)
-      const { data, error } = await supabase.from(pet).insert([
+      const { data, error, defaultToNull } = await supabase.from(pet).insert([
         {
           customerId: '34343',
+          time_called: this.time_called,
           appointed_time: this.date,
           pet_gender: this.petGender,
           todo_list: this.toDo,
-          pet_breed: 'e',
+          pet_breed: this.petBreed,
           preference_sitter_gender: this.sitterGender,
-          customer_username: this.user.user
+          customer_username: this.user.currentUser
         }
       ])
-      console.log(this.date, this.petGender, this.toDo, this.sitterGender, this.user.user)
+      console.log(this.date, this.petGender, this.toDo, this.sitterGender, this.user.currentUser)
+    },
+    getDate: function () {
+      return new Date()
     },
     genders: function (sitterPreference, petGender) {
       console.log(sitterPreference, petGender)
@@ -60,7 +71,7 @@ export default {
     },
     breed: function (breed) {
       console.log(breed)
-      this.breed = breed
+      this.petBreed = breed
     },
     checkPet: function (pet) {
       if (pet === 'Dog') {
@@ -71,6 +82,9 @@ export default {
         return 'error'
       }
     }
+  },
+  mounted() {
+    this.onMounted()
   }
 }
 </script>
@@ -101,6 +115,7 @@ export default {
           </div>
           <div class="pet">
             <h3>Pet Species: {{ pet }}</h3>
+            <h3>Pet Breed: {{ petBreed }}</h3>
           </div>
           <div class="genders">
             <h3 class="petGender">Pet Gender: {{ petGender }}</h3>
