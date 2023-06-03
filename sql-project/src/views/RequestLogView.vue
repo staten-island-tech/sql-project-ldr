@@ -49,3 +49,18 @@ export default {
   }
 }
 </script>
+
+<template>
+  <div class="main">
+    <RequestCard
+      v-for="request in userData"
+      v-bind:key="request"
+      :appointmentTime="new Date(request.appointed_time)"
+      :timeCalled="new Date(request.time_called)"
+      :toDoList="request.todo_list.join(', ')"
+      :petBreed="request.pet_breed"
+      :petGender="request.pet_gender"
+      :sitterGender="request.preference_sitter_gender"
+    />
+  </div>
+</template>
