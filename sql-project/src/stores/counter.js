@@ -18,8 +18,8 @@ export const useAuthStore = defineStore({
     }
   },
   actions: {
-    loadUser() {
-      this.currentUser = supabase.auth.getUser()
+    loadUser(user) {
+      this.currentUser = user
     },
     clearUser() {
       this.currentUser = null

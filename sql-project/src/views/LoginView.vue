@@ -18,6 +18,7 @@ async function signIn(supabase, userEmail, userPassword) {
       data: { user }
     } = await supabase.auth.getUser()
     console.log(user.id)
+    useAuthStore().loadUser(user.id)
   } catch (error) {
     console.error(error)
   }
@@ -38,12 +39,10 @@ export default {
         console.log('error')
       } else {
         signIn(supabase, userEmail, userPassword)
-        useAuthStore()
       }
     }
-  }}
-
-
+  }
+}
 </script>
 
 <template>
@@ -64,7 +63,9 @@ export default {
       </form>
 
       <div class="signup-instead">
-      <span>Don't have an account? <a><RouterLink to='/signupPage'>Sign Up</RouterLink></a></span>
+        <span
+          >Don't have an account? <a><RouterLink to="/signupPage">Sign Up</RouterLink></a></span
+        >
       </div>
     </div>
   </main>

@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="mainBody">
     <input type="datetime-local" step="1" id="dateSelector" name="dateTime" v-model="dateTime" />
     <label for="date">Select your date here:</label>
     <button @click="e">Update Date:</button>
@@ -30,10 +30,11 @@ export default {
 </script>
 
 <style scoped>
-.main {
+.mainBody {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-evenly;
+  width: 25vw;
 }
 </style>

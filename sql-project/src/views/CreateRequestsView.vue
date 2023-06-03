@@ -10,7 +10,6 @@ const supabaseKey =
 const supabase = createClient(supabaseUrl, supabaseKey)
 export default {
   components: { DateSelector, CheckBoxes, InputBar },
-  emits: ['updateGenders', 'updateDate', 'updatePets'],
   data() {
     return {
       date: '',
@@ -20,29 +19,34 @@ export default {
       sitterGender: '',
       pet: '',
       toDo: '',
-      user: useAuthStore()
+      user: useAuthStore(),
+      user_id: ''
     }
   },
   methods: {
     onMounted: async function () {
-      const { data, error } = await supabase
-        .from('logins')
-        .select('name, user_id')
-        .eq('name', this.user.currentUser)
-      console.log(data)
+      this.checkUser()
+      console.log(await this.user.currentUser)
+      let promise = await this.user.currentUser
+      this.user_id = promise.data
+    },
+    checkUser: function () {
+      if (useAuthStore().currentUser === null) {
+        window.location.href = 'loginpage'
+      } else {
+      }
     },
     submitted: async function () {
       let pet = this.checkPet(this.pet)
       const { data, error, defaultToNull } = await supabase.from(pet).insert([
         {
-          customerId: '34343',
+          customerId: this.user_id,
           time_called: this.time_called,
           appointed_time: this.date,
           pet_gender: this.petGender,
           todo_list: this.toDo,
           pet_breed: this.petBreed,
-          preference_sitter_gender: this.sitterGender,
-          customer_username: this.user.currentUser
+          preference_sitter_gender: this.sitterGender
         }
       ])
       console.log(this.date, this.petGender, this.toDo, this.sitterGender, this.user.currentUser)

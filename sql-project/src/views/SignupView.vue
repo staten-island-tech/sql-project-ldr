@@ -2,7 +2,6 @@
 import { useAuthStore } from '../stores/counter'
 import { createClient } from '@supabase/supabase-js'
 
-
 const supabaseUrl = 'https://tzithwsneecztaewiwhj.supabase.co'
 const supabaseKey =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6aXRod3NuZWVjenRhZXdpd2hqIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2Mzk5MjksImV4cCI6MTk5OTIxNTkyOX0.YeSE7Cuk2UX5jD6haxAnmM_-RdlssSRtowQH9ejl_1w'
@@ -57,8 +56,7 @@ export default {
       }
     }
   }
-  ,}
-
+}
 </script>
 
 <template>
@@ -82,17 +80,13 @@ export default {
       </form>
 
       <div class="login-instead">
-        <span>Already have an account? <a href="loginPage" class="login-link">Login</a></span>
-        <RouterLink to="/loginPage">Already have an account?</RouterLink>
+        <span
+          >Already have an account? <a><RouterLink to="/loginPage">Login</RouterLink></a></span
+        >
       </div>
     </div>
   </main>
-
-  
 </template>
-
-
-
 
 <style scoped>
 .signup-section {
