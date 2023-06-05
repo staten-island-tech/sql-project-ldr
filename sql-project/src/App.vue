@@ -1,15 +1,15 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+
 import { createClient } from '@supabase/supabase-js'
 
 const supabaseUrl = 'https://tzithwsneecztaewiwhj.supabase.co'
 const supabaseKey =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6aXRod3NuZWVjenRhZXdpd2hqIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM2Mzk5MjksImV4cCI6MTk5OTIxNTkyOX0.YeSE7Cuk2UX5jD6haxAnmM_-RdlssSRtowQH9ejl_1w'
 const supabase = createClient(supabaseUrl, supabaseKey)
-
 async function sm() {
-  let { data: user_logins, error } = await supabase.from('user_logins').select('user_id, email')
-  console.log(user_logins)
+  let { data: logins } = await supabase.from('logins').select('user_id, email')
+  console.log(logins)
 }
 sm()
 </script>

@@ -86,3 +86,18 @@ export default {
     </div>
   </div>
 </template>
+
+<style scoped>
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.checkbox {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+</style>
