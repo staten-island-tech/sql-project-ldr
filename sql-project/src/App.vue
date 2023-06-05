@@ -30,6 +30,8 @@ export default {
 </template>
 
 <style scoped>
+
+
 header {
   line-height: 1.5;
   max-height: 100vh;
@@ -42,7 +44,7 @@ header {
 
 nav {
   width: 100%;
-  font-size: 12px;
+  font-size: 20px;
   text-align: center;
   margin-top: 2rem;
 }
@@ -80,6 +82,7 @@ nav a:first-of-type {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
+
   }
 
   nav {
@@ -91,4 +94,5 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 }
+
 </style>

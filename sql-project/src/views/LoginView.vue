@@ -75,23 +75,27 @@ export default {
 
 <style scoped>
 .login-section {
-  height: auto;
   width: 100%;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  
 }
 
 h1 {
   font-weight: 600;
   text-align: center;
   margin-bottom: 1rem;
+  color: lightpink;
+  font-size: 50px;
 }
 
 #email,
 #password {
-  width: 17.5rem;
+  width: 20rem;
   padding: 10px;
   margin-bottom: 0.85rem;
 }
@@ -113,9 +117,13 @@ h1 {
 }
 
 #login {
-  width: 17.5rem;
+  width: 20rem;
   padding: 5px;
   margin-top: 0.25rem;
   margin-bottom: 0.5rem;
+}
+.signup-instead{
+  color: black;
+  font-size: 30px;
 }
 </style>
