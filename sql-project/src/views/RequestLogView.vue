@@ -28,6 +28,12 @@ export default {
       this.userData = data
       console.log(this.userData)
     },
+    removeCard: async function (id, petType) {
+      document.getElementById(id).remove()
+      const { data, error } = await supabase.from(petType).delete().eq('primary_key', id)
+      console.log(error)
+      this.cardData()
+    },
     checkUser: function () {
       if (useAuthStore().currentUser === null) {
         window.location.href = 'loginpage'
@@ -55,12 +61,15 @@ export default {
     <RequestCard
       v-for="request in userData"
       v-bind:key="request"
+      :primaryKey="request.primary_key"
       :appointmentTime="new Date(request.appointed_time)"
       :timeCalled="new Date(request.time_called)"
       :toDoList="request.todo_list.join(', ')"
+      :petType="request.pet_type"
       :petBreed="request.pet_breed"
       :petGender="request.pet_gender"
       :sitterGender="request.preference_sitter_gender"
+      @remove="removeCard"
     />
   </div>
 </template>

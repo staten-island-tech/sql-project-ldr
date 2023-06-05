@@ -1,4 +1,5 @@
 <script>
+import router from '../router'
 import DateSelector from '../components/templates/DateSelector.vue'
 import CheckBoxes from '../components/templates/CheckBoxes.vue'
 import InputBar from '../components/templates/InputBars.vue'
@@ -19,6 +20,7 @@ export default {
       sitterGender: '',
       pet: '',
       toDo: '',
+      rawToDo: '',
       user: useAuthStore(),
       user_id: ''
     }
@@ -47,19 +49,17 @@ export default {
           pet_gender: this.petGender,
           todo_list: this.toDo,
           pet_breed: this.petBreed,
-          preference_sitter_gender: this.sitterGender
+          preference_sitter_gender: this.sitterGender,
+          pet_type: this.pet
         }
       ])
       console.log(error)
-      console.log(data)
-      console.log(
-        this.user_id,
-        this.time_called,
-        this.date,
-        this.petGender,
-        this.toDo,
-        this.sitterGender
-      )
+      if (error.message !== null) {
+        console.log('ee')
+        router.push('error')
+      } else {
+        router.push('success')
+      }
     },
     genders: function (sitterPreference, petGender) {
       console.log(sitterPreference, petGender)
@@ -78,7 +78,9 @@ export default {
     },
     tasks: function (tasks) {
       console.log(tasks)
-      this.toDo = tasks
+      let array = tasks.split(',')
+      this.rawToDo = tasks
+      this.toDo = array
     },
     breed: function (breed) {
       console.log(breed)
@@ -133,7 +135,7 @@ export default {
             <h3 class="sitterGender">Sitter Gender Preference: {{ sitterGender }}</h3>
           </div>
           <div class="tasks">
-            <p class="toDo">{{ toDo }}</p>
+            <p class="toDo">To Do List: {{ rawToDo }}</p>
           </div>
         </div>
       </div>
@@ -145,7 +147,7 @@ export default {
 .main {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: space-evenly;
 }
 </style>
