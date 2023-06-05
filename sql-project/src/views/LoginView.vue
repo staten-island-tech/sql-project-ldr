@@ -1,4 +1,5 @@
 <script>
+import router from '../router'
 import { useAuthStore } from '../stores/counter'
 import { createClient } from '@supabase/supabase-js'
 
@@ -19,6 +20,7 @@ async function signIn(supabase, userEmail, userPassword) {
     } = await supabase.auth.getUser()
     console.log(user.id)
     useAuthStore().loadUser(user.id)
+    router.push('requestlog')
   } catch (error) {
     console.error(error)
   }
