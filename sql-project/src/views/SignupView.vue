@@ -1,6 +1,7 @@
 <script>
 import { useAuthStore } from '../stores/counter'
 import { createClient } from '@supabase/supabase-js'
+import router from '../router'
 
 const supabaseUrl = 'https://tzithwsneecztaewiwhj.supabase.co'
 const supabaseKey =
@@ -53,6 +54,7 @@ export default {
       } else {
         signUp(supabase, userEmail, userPasswordConfirmed)
         useAuthStore()
+        router.push('login')
       }
     }
   }
