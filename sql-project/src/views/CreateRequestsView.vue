@@ -28,9 +28,7 @@ export default {
   methods: {
     onMounted: async function () {
       this.checkUser()
-      console.log(await this.user.currentUser)
       this.user_id = await this.user.currentUser
-      console.log(this.user_id)
     },
     checkUser: function () {
       if (useAuthStore().currentUser === null) {
@@ -54,36 +52,28 @@ export default {
         }
       ])
       console.log(error)
-      if (error.message !== null) {
-        console.log('ee')
+      if (error !== null) {
         router.push('error')
       } else {
         router.push('success')
       }
     },
     genders: function (sitterPreference, petGender) {
-      console.log(sitterPreference, petGender)
       this.petGender = petGender
       this.sitterGender = sitterPreference
-      console.log(this.petGender)
-      console.log(this.sitterGender)
     },
     dates: function (date) {
-      console.log(date)
       this.date = date.toString()
     },
     petSpecies: function (species) {
-      console.log(species)
       this.pet = species
     },
     tasks: function (tasks) {
-      console.log(tasks)
       let array = tasks.split(',')
       this.rawToDo = tasks
       this.toDo = array
     },
     breed: function (breed) {
-      console.log(breed)
       this.petBreed = breed
     },
     checkPet: function (pet) {
@@ -104,36 +94,50 @@ export default {
 
 <template>
   <div>
-    <div class="header"><h1>This is an about page</h1></div>
     <div class="main">
+      <div class="header">
+        <h1>Make An Appointment</h1>
+      </div>
+      <br />
+
       <div class="requestCreator">
-        <div class="dates">
-          <DateSelector @updateDate="dates" />
+        <div class="row-1">
+          <div class="dates">
+            <DateSelector @updateDate="dates" />
+          </div>
+
+          <div class="checkboxes">
+            <CheckBoxes @updateGenders="genders" @updatePets="petSpecies" />
+          </div>
         </div>
-        <div class="checkboxes">
-          <CheckBoxes @updateGenders="genders" @updatePets="petSpecies" />
-        </div>
+
         <div class="inputBar">
           <InputBar @updateTasks="tasks" @updateBreed="breed" />
         </div>
+
         <div class="submit">
           <button class="submit" v-on:click="submitted">Submit</button>
         </div>
       </div>
+      <br />
+
       <div class="preview">
         <h2>This is what we see:</h2>
         <div class="card">
           <div class="date">
             <h3>{{ date }}</h3>
           </div>
+
           <div class="pet">
             <h3>Pet Species: {{ pet }}</h3>
             <h3>Pet Breed: {{ petBreed }}</h3>
           </div>
+
           <div class="genders">
             <h3 class="petGender">Pet Gender: {{ petGender }}</h3>
             <h3 class="sitterGender">Sitter Gender Preference: {{ sitterGender }}</h3>
           </div>
+
           <div class="tasks">
             <p class="toDo">To Do List: {{ rawToDo }}</p>
           </div>
@@ -144,10 +148,23 @@ export default {
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400;1,600;1,900&display=swap');
 .main {
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  text-align: center;
+}
+
+.row-1 {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
+}
+
+.inputBar {
+  width: 30rem;
 }
 </style>

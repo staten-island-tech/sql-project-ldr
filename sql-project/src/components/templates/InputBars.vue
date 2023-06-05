@@ -12,12 +12,10 @@ export default {
     recordData: function () {
       let rawData = this.rawData
       let finalData = this.checker(rawData)
-      console.log(rawData)
       this.$emit('updateTasks', finalData)
     },
     recordBreed: function () {
       let Breed = this.petBreed
-      console.log(Breed)
       let finalBreed = this.checker(Breed)
       this.$emit('updateBreed', finalBreed)
     },

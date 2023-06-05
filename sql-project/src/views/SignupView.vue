@@ -21,7 +21,6 @@ async function signUp(supabase, userEmail, userPassword) {
     let {
       data: { user }
     } = await supabase.auth.getUser()
-    console.log(user.id)
 
     await supabase.from('logins').insert([{ user_id: user.id, email: userEmail }])
   } catch (error) {
@@ -37,16 +36,6 @@ export default {
       let userEmail = document.getElementById('email').value
       let userPassword = document.getElementById('password').value
       let userPasswordConfirmed = document.getElementById('password-confirm').value
-
-      if (userPassword == userPasswordConfirmed) {
-        console.log(true)
-      }
-      //let password = password
-
-      console.log(userEmail)
-      console.log(userPassword)
-      console.log(userPasswordConfirmed)
-      //console.log(password)
 
       if (userEmail === '' || userPassword === '') {
         console.error('error')

@@ -26,7 +26,6 @@ export default {
       let catRequests = await this.requestGetter('CatSitters')
       let data = dogRequests.concat(catRequests)
       this.userData = data
-      console.log(this.userData)
     },
     removeCard: async function (id, petType) {
       document.getElementById(id).remove()
@@ -46,7 +45,6 @@ export default {
         .select('*')
         .eq('customer_id', this.customer_id)
       console.log(error)
-      console.log(data)
       return data
     }
   },

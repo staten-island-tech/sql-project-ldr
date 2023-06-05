@@ -18,7 +18,6 @@ async function signIn(supabase, userEmail, userPassword) {
     let {
       data: { user }
     } = await supabase.auth.getUser()
-    console.log(user.id)
     useAuthStore().loadUser(user.id)
     router.push('requestlog')
   } catch (error) {
@@ -33,9 +32,6 @@ export default {
 
       let userEmail = document.getElementById('email').value
       let userPassword = document.getElementById('password').value
-
-      console.log(userEmail)
-      console.log(userPassword)
 
       if (userEmail === '' || userPassword === '') {
         console.log('error')
