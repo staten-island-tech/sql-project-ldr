@@ -160,7 +160,7 @@ export default {
   align-items: center;
 }
 
-.checkbox {
+/* .checkbox {
   display: none;
 }
 .checkbox,
@@ -210,7 +210,7 @@ label:before {
   border-radius: 0.3em;
   background: #50565a;
   box-shadow: 2px 1px 0 #50565a;
-}
+} */
 
 h2 {
   text-decoration: underline;

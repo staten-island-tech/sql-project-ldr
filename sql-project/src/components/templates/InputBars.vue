@@ -33,13 +33,32 @@ export default {
 <template>
   <div class="main">
     <div class="input">
-      <label for="input">Please input what tasks the petsitter needs to perform.</label>
-      <input type="text" id="input" name="input" required v-model="rawData" />
+      <label for="input">What tasks would you like to assign the pet sitter?</label>
+      <input
+        type="text"
+        id="input"
+        name="input"
+        rows="4"
+        cols="50"
+        v-model="rawData"
+        placeholder="e.g. walk the dog, wash the dog, feed the dog"
+        required
+      />
       <button class="submit" @click="recordData">Update</button>
     </div>
+
     <div class="input">
-      <label for="petBreed">Please input what breed your pet is</label>
-      <input type="text" id="petBreed" name="petBreed" required v-model="petBreed" />
+      <label for="petBreed">Please provide some information about your pet:</label>
+      <input
+        type="text"
+        id="petBreed"
+        name="petBreed"
+        rows="4"
+        cols="50"
+        v-model="petBreed"
+        placeholder="Pet Breed, Special Needs, Medical Conditions..."
+        required
+      />
       <button class="submit" @click="recordBreed">Update</button>
     </div>
   </div>
@@ -48,17 +67,23 @@ export default {
 <style scoped>
 .main {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-evenly;
 }
+
 .input {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
-  justify-content: space-evenly;
+  align-items: center;
 }
+
+input {
+  display: inline-flex;
+  width: 17.5vw;
+}
+
 .submit {
   width: 60px;
+  margin-top: 0.4rem;
 }
 </style>

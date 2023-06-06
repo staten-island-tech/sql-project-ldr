@@ -92,53 +92,51 @@ export default {
 </script>
 
 <template>
-  <div>
-    <div class="main">
-      <div class="header">
-        <h1>Make An Appointment</h1>
-      </div>
+  <div class="main">
+    <div class="header">
+      <h1>Make An Appointment</h1>
+    </div>
 
-      <div class="requestCreator">
-        <div class="row-1">
-          <div class="dates">
-            <DateSelector @updateDate="dates" />
-          </div>
-
-          <div class="checkboxes">
-            <CheckBoxes @updateGenders="genders" @updatePets="petSpecies" />
-          </div>
+    <div class="requestCreator">
+      <div class="row-1">
+        <div class="dates">
+          <DateSelector @updateDate="dates" />
         </div>
 
-        <div class="inputBar">
-          <InputBar @updateTasks="tasks" @updateBreed="breed" />
-        </div>
-
-        <div class="submit">
-          <button class="submit" v-on:click="submitted">Submit</button>
+        <div class="checkboxes">
+          <CheckBoxes @updateGenders="genders" @updatePets="petSpecies" />
         </div>
       </div>
-      <br />
 
-      <div class="preview">
-        <h2>This is what we see:</h2>
-        <div class="card">
-          <div class="date">
-            <h3>{{ date }}</h3>
-          </div>
+      <div class="inputBar">
+        <InputBar @updateTasks="tasks" @updateBreed="breed" />
+      </div>
 
-          <div class="pet">
-            <h3>Pet Species: {{ pet }}</h3>
-            <h3>Pet Breed: {{ petBreed }}</h3>
-          </div>
+      <div class="submit">
+        <button v-on:click="submitted">Submit</button>
+      </div>
+    </div>
+    <br />
 
-          <div class="genders">
-            <h3 class="petGender">Pet Gender: {{ petGender }}</h3>
-            <h3 class="sitterGender">Sitter Gender Preference: {{ sitterGender }}</h3>
-          </div>
+    <div class="preview">
+      <h2>This is what we see:</h2>
+      <div class="card">
+        <div class="date">
+          <h3>{{ date }}</h3>
+        </div>
 
-          <div class="tasks">
-            <p class="toDo">To Do List: {{ rawToDo }}</p>
-          </div>
+        <div class="pet">
+          <h3>Pet Species: {{ pet }}</h3>
+          <h3>Pet Breed: {{ petBreed }}</h3>
+        </div>
+
+        <div class="genders">
+          <h3 class="petGender">Pet Gender: {{ petGender }}</h3>
+          <h3 class="sitterGender">Sitter Gender Preference: {{ sitterGender }}</h3>
+        </div>
+
+        <div class="tasks">
+          <p class="toDo">To Do List: {{ rawToDo }}</p>
         </div>
       </div>
     </div>
@@ -147,8 +145,12 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400;1,600;1,900&display=swap');
+.main {
+  margin: 0 5rem 0 5rem;
+}
+
 .header {
-  margin-bottom: 4.5rem;
+  margin-bottom: 2rem;
 }
 
 h1 {
@@ -160,10 +162,20 @@ h1 {
 .row-1 {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .inputBar {
-  width: 30rem;
+  margin-top: 3rem;
+}
+
+.requestCreator {
+  padding: 2rem;
+  margin: 0 10rem 0 10rem;
+  border: 3px red solid;
+  border-radius: 50px;
+}
+
+.submit {
 }
 </style>
