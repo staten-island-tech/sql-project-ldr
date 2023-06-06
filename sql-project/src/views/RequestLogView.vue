@@ -12,7 +12,8 @@ export default {
     return {
       customer_id: '',
       user: useAuthStore(),
-      userData: ''
+      userData: '',
+      noCardData: ''
     }
   },
   methods: {
@@ -44,6 +45,13 @@ export default {
         .select('*')
         .eq('customer_id', this.customer_id)
       console.log(error)
+      if (data.length > 0) {
+        this.noCardData = false
+      } else if (data.length === 0) {
+        this.noCardData = true
+      } else {
+        console.log('error')
+      }
       return data
     }
   },
@@ -55,6 +63,13 @@ export default {
 
 <template>
   <div class="main">
+    <div class="no-data" v-if="noCardData">
+      <p>
+        Looks like you don't have requests in our database.<RouterLink to="requests">
+          <h4>Create a request here:</h4>
+        </RouterLink>
+      </p>
+    </div>
     <RequestCard
       v-for="request in userData"
       v-bind:key="request"
