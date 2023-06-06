@@ -33,7 +33,6 @@ export default {
     checkUser: function () {
       if (useAuthStore().currentUser === null) {
         window.location.href = 'loginpage'
-      } else {
       }
     },
     submitted: async function () {
@@ -98,7 +97,6 @@ export default {
       <div class="header">
         <h1>Make An Appointment</h1>
       </div>
-      <br />
 
       <div class="requestCreator">
         <div class="row-1">
@@ -149,7 +147,8 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400;1,600;1,900&display=swap');
-.main {
+.header {
+  margin-bottom: 4.5rem;
 }
 
 h1 {

@@ -74,19 +74,16 @@ export default {
   width: 100%;
   align-items: center;
   justify-content: center;
-  background-color: gray;
   display: flex;
   flex-direction: column;
   height: 50vh;
-  
 }
 
 h1 {
   font-weight: 600;
   text-align: center;
   margin-bottom: 1rem;
-  color: lightpink;
-  font-size: 50px;
+  font-size: 35px;
 }
 
 #email,
@@ -96,30 +93,10 @@ h1 {
   margin-bottom: 0.85rem;
 }
 
-#email:invalid {
-  border: 2px solid red;
-  animation: shake 0.2s 2;
-}
-@keyframes shake {
-  25% {
-    translate: 6px 0;
-  }
-  50% {
-    translate: -6px 0;
-  }
-  75% {
-    translate: 6px 0;
-  }
-}
-
 #login {
   width: 20rem;
   padding: 5px;
   margin-top: 0.25rem;
   margin-bottom: 0.5rem;
-}
-.signup-instead{
-  color: black;
-  font-size: 30px;
 }
 </style>

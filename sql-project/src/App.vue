@@ -17,12 +17,18 @@ export default {
     <header>
       <div class="wrapper">
         <nav>
-          <RouterLink to="/loginPage">Login</RouterLink>
-          <RouterLink to="/requests">About</RouterLink>
-          <RouterLink to="/requestlog">Current Requests</RouterLink>
-          <button @click="logOut">Log Out:</button>
+          <div class="left">
+            <RouterLink class="router" to="/requests">Schedule Appointments</RouterLink>
+            <RouterLink class="router" to="/requestlog">View Appointments</RouterLink>
+          </div>
+
+          <div class="right">
+            <RouterLink class="router" to="/loginPage">Login</RouterLink>
+          </div>
         </nav>
       </div>
+
+      <button @click="logOut">Log Out</button>
     </header>
 
     <RouterView />
@@ -30,69 +36,48 @@ export default {
 </template>
 
 <style scoped>
-
-
 header {
   line-height: 1.5;
   max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
 }
 
 nav {
   width: 100%;
   font-size: 20px;
   text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 nav a {
   display: inline-block;
-  padding: 0 1rem;
+  padding: 1rem;
   border-left: 1px solid var(--color-border);
+}
+
+.left {
+  margin-left: 5rem;
+}
+.right {
+  margin-right: 5rem;
 }
 
 nav a:first-of-type {
   border: 0;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+nav:hover .router {
+  color: #575757;
+}
+nav:hover .router:hover {
+  color: #5cdb95;
+  box-shadow: 0 2px 0 0 currentColor;
 }
 
+header .wrapper {
+  display: flex;
+  place-items: flex-start;
+  flex-wrap: wrap;
+}
 </style>

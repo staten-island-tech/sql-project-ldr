@@ -2,7 +2,7 @@
   <div class="mainBody">
     <label for="date">Select your date:</label>
     <input type="datetime-local" step="1" id="dateSelector" name="dateTime" v-model="dateTime" />
-    <button @click="e">Update Date:</button>
+    <button @click="e">Update Date</button>
   </div>
 </template>
 
