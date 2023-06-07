@@ -43,7 +43,7 @@ export default {
       } else {
         signUp(supabase, userEmail, userPasswordConfirmed)
         useAuthStore()
-        router.push('login')
+        router.push('loginpage')
       }
     }
   }

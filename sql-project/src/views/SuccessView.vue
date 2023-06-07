@@ -6,7 +6,6 @@ export default {
     checkUser: function () {
       if (useAuthStore().currentUser === null) {
         window.location.href = 'loginpage'
-      } else {
       }
     }
   },

@@ -47,38 +47,34 @@ label {
   margin-bottom: 1rem;
 }
 
-/* button {
-  width: 20rem;
-  padding: 10px;
-  border-radius: 2rem;
-  position: relative;
-  display: inline-block;
+button {
+  margin-top: 1rem;
+  background-color: #222;
+  border-radius: 4px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
   cursor: pointer;
+  display: inline-block;
+  font-family: 'Farfetch Basis', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  max-width: none;
   outline: none;
-  border: 0;
-  vertical-align: middle;
-  text-decoration: none;
-  font-size: inherit;
-  font-family: inherit;
-}
-button::before {
-  position: absolute;
-  content: '';
+  overflow: hidden;
+  padding: 9px 20px 8px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
   width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: $dark-pink;
-  border-radius: inherit;
-  box-shadow: 0 0 0 2px $pink-border, 0 0.625em 0 0 $pink-shadow;
-  transform: translate3d(0, 0.75em, -1em);
-  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1);
-  box-shadow: 150ms cubic-bezier(0, 0, 0.58, 1);
 }
-:hover {
-  background: $pink;
-  transform: translate(0, 0.25em);
-} */
+
+button:hover,
+button:focus {
+  opacity: 0.75;
+}
 </style>
