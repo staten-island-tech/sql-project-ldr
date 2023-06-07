@@ -26,6 +26,15 @@ export default {
       let dogRequests = await this.requestGetter('DogSitters')
       let catRequests = await this.requestGetter('CatSitters')
       let data = dogRequests.concat(catRequests)
+      if (data.length > 0) {
+        this.noCardData = false
+        console.log('e')
+      } else if (data.length === 0) {
+        this.noCardData = true
+        console.log('e')
+      } else {
+        console.log('error')
+      }
       this.userData = data
     },
     removeCard: async function (id, petType) {
@@ -45,13 +54,6 @@ export default {
         .select('*')
         .eq('customer_id', this.customer_id)
       console.log(error)
-      if (data.length > 0) {
-        this.noCardData = false
-      } else if (data.length === 0) {
-        this.noCardData = true
-      } else {
-        console.log('error')
-      }
       return data
     }
   },
