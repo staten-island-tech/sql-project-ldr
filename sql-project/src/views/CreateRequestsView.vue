@@ -168,14 +168,17 @@ h1 {
 }
 
 .requestCreator {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
   padding: 2rem;
   margin: 0 10rem 0 10rem;
   border: 3px red solid;
   border-radius: 50px;
+}
+
+.submit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
 }
 
 button {
