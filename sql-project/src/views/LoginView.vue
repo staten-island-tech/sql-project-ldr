@@ -71,12 +71,20 @@ export default {
 
 <style scoped>
 .login-section {
-  width: 100%;
+  width: 25%;
   align-items: center;
   justify-content: center;
   display: flex;
   flex-direction: column;
   height: 50vh;
+  border: 10px white solid;
+
+ box-sizing: border-box;
+ border-radius: 3px;
+ position: absolute; left: 40%;
+
+ 
+
 }
 
 h1 {

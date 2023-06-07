@@ -81,12 +81,17 @@ export default {
 
 <style scoped>
 .signup-section {
-  height: auto;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+  width: 25%;
   align-items: center;
   justify-content: center;
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  border: 15px white solid;
+  position: absolute; left: 40%;
+
+ box-sizing: border-box;
+ border-radius: 3px;
 }
 
 h1 {
