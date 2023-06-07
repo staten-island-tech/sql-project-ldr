@@ -161,6 +161,7 @@ h1 {
 
 .row-1 {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
 }
