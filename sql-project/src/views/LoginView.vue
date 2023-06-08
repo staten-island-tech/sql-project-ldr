@@ -73,6 +73,9 @@ export default {
 </template>
 
 <style scoped>
+a{
+  text-decoration: underline;
+}
 .background {
   background-color: rgba(161, 219, 249, 255);
   background-size: 30%;

@@ -89,6 +89,9 @@ export default {
 background-image: url("https://img.freepik.com/premium-vector/cute-cat-corgi-dog-cartoon-vector-icon-illustration_480044-276.jpg?w=2000");
 
 }
+a{
+  text-decoration: underline;
+}
 span{
   color: darkslateblue;
 }
