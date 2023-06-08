@@ -82,16 +82,15 @@ export default {
 <style scoped>
 .signup-section {
   width: 25%;
+  margin: 4rem auto;
   align-items: center;
   justify-content: center;
   display: flex;
   flex-direction: column;
   height: 50vh;
-  border: 15px w solid;
-  position: absolute; left: 40%;
-
- box-sizing: border-box;
- border-radius: 3px;
+  border: 10px white solid;
+  box-sizing: border-box;
+  border-radius: 3px;
 }
 
 h1 {
@@ -103,29 +102,13 @@ h1 {
 #email,
 #password,
 #password-confirm {
-  width: 17.5rem;
+  width: 20rem;
   padding: 10px;
   margin-bottom: 0.85rem;
 }
 
-#email:invalid {
-  border: 2px solid red;
-  animation: shake 0.2s 2;
-}
-@keyframes shake {
-  25% {
-    translate: 6px 0;
-  }
-  50% {
-    translate: -6px 0;
-  }
-  75% {
-    translate: 6px 0;
-  }
-}
-
 #signup {
-  width: 17.5rem;
+  width: 20rem;
   padding: 5px;
   margin-top: 0.25rem;
   margin-bottom: 0.5rem;
