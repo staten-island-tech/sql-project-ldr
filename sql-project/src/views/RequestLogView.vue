@@ -88,20 +88,18 @@ export default {
 </template>
 
 <style scoped>
-.main{
-  color:black;
-  
-  
+.main {
+  color: black;
 }
 a,
 .green {
   text-decoration: none;
- color: red;
+  color: red;
   transition: 0.4s;
   text-decoration: underline;
 }
 
-.no-data{
+.no-data {
   font-size: 16px;
   display: flex;
   width: 50vw;
@@ -110,14 +108,13 @@ a,
   margin: 10px auto;
   flex-direction: column;
   padding: 10px;
-  border: 10px #C8A2C8 solid;
-  background-color:#E6E6FA;
+  border: 10px #c8a2c8 solid;
+  background-color: #e6e6fa;
 }
-p{
- text-underline-position: under;
- 
+p {
+  text-underline-position: under;
 }
-.card{
+.card {
   font-size: 16px;
   display: flex;
   width: 50vw;
@@ -126,8 +123,7 @@ p{
   margin: 10px auto;
   flex-direction: column;
   padding: 10px;
-  border: 10px #C8A2C8 solid;
-  background-color:#E6E6FA;
+  border: 10px #c8a2c8 solid;
+  background-color: #e6e6fa;
 }
-
 </style>

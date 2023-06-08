@@ -82,7 +82,7 @@ export default {
 </template>
 
 <style scoped>
-a{
+a {
   text-decoration: underline;
 }
 .background {

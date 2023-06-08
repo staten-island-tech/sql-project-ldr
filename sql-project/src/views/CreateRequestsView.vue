@@ -156,10 +156,11 @@ h1 {
   text-align: center;
   color: black;
   font: bold;
-  
 }
-h2,h3,.tasks{
-  color:black
+h2,
+h3,
+.tasks {
+  color: black;
 }
 .row-1 {
   display: flex;
