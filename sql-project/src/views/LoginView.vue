@@ -38,16 +38,15 @@ export default {
       } else {
         signIn(supabase, userEmail, userPassword)
       }
-    }
+      this.$emit('loggedin')
+    },
+    emits: ['loggedin']
   }
 }
 </script>
 
-
 <template>
   <main>
-
-
     <div class="background">
       <div class="login-section">
         <h1>Login</h1>
@@ -70,20 +69,17 @@ export default {
         </div>
       </div>
     </div>
-    
   </main>
 </template>
 
 <style scoped>
-
-.background{
-  background-color:rgba(161,219,249,255);
+.background {
+  background-color: rgba(161, 219, 249, 255);
   background-size: 30%;
   background-repeat: no-repeat;
-background-image: url("https://img.freepik.com/premium-vector/cute-cat-corgi-dog-cartoon-vector-icon-illustration_480044-276.jpg?w=2000");
-
+  background-image: url('https://img.freepik.com/premium-vector/cute-cat-corgi-dog-cartoon-vector-icon-illustration_480044-276.jpg?w=2000');
 }
-span{
+span {
   color: darkslateblue;
 }
 .login-section {
@@ -94,12 +90,11 @@ span{
   display: flex;
   flex-direction: column;
   height: 50vh;
-  border: 10px #C8A2C8 solid;
+  border: 10px #c8a2c8 solid;
   box-sizing: border-box;
   border-radius: 3px;
-  background-color:#E6E6FA;
+  background-color: #e6e6fa;
   right: 0%;
-  
 }
 
 h1 {
