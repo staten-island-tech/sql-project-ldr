@@ -151,6 +151,7 @@ position: absolute;top:50%;left:70%
   border-radius: 3px;
   position: absolute;
   left: 40%;
+  top:20%;
 }
 
 
