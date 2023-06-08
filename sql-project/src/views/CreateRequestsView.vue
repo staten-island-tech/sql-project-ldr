@@ -169,9 +169,12 @@ h1 {
 
 .requestCreator {
   padding: 2rem;
-  margin: 0 10rem 0 10rem;
-  border: 3px red solid;
+  width: 80%;
+  margin: auto;
+  border: 3px white solid;
   border-radius: 50px;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 }
 
 .submit {
@@ -201,7 +204,6 @@ button {
   -webkit-user-select: none;
   touch-action: manipulation;
 }
-
 button::after,
 button::before {
   content: '';
@@ -211,7 +213,6 @@ button::before {
   z-index: -99999;
   transition: all 0.4s;
 }
-
 button::before {
   transform: translate(0%, 0%);
   width: 100%;
@@ -219,7 +220,6 @@ button::before {
   background: #28282d;
   border-radius: 10px;
 }
-
 button::after {
   transform: translate(10px, 10px);
   width: 35px;
@@ -229,22 +229,25 @@ button::after {
   -webkit-backdrop-filter: blur(5px);
   border-radius: 50px;
 }
-
 button:hover::before {
   transform: translate(5%, 20%);
   width: 110%;
   height: 110%;
 }
-
 button:hover::after {
   border-radius: 10px;
   transform: translate(0, 0);
   width: 100%;
   height: 100%;
 }
-
 button:active::after {
   transition: 0s;
   transform: translate(0, 5%);
+}
+
+@media (max-width: 768px) {
+  .requestCreator {
+    width: 100%;
+  }
 }
 </style>

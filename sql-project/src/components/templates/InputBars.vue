@@ -107,9 +107,21 @@ button {
   touch-action: manipulation;
   width: 100%;
 }
-
 button:hover,
 button:focus {
   opacity: 0.75;
+}
+
+@media (max-width: 1440px) {
+  input {
+    width: 20rem;
+  }
+}
+@media (max-width: 1024px) {
+  .main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
 </style>

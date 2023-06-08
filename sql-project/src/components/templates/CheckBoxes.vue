@@ -192,11 +192,27 @@ button {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 100%;
+  width: auto;
 }
-
 button:hover,
 button:focus {
   opacity: 0.75;
+}
+
+@media (max-width: 1440px) {
+  .main {
+    justify-content: space-between;
+  }
+}
+@media (max-width: 1024px) {
+  .main {
+    justify-content: space-evenly;
+  }
+}
+@media (max-width: 425px) {
+  .main {
+    width: auto;
+    flex-direction: column;
+  }
 }
 </style>

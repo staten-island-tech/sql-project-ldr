@@ -72,7 +72,6 @@ button {
   touch-action: manipulation;
   width: 100%;
 }
-
 button:hover,
 button:focus {
   opacity: 0.75;
