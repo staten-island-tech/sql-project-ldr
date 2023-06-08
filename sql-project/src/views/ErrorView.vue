@@ -1,11 +1,12 @@
 <script>
 import { useAuthStore } from '@/stores/counter'
+import router from '../router'
 export default {
   name: 'ErrorView',
   methods: {
     checkUser: function () {
       if (useAuthStore().currentUser === null) {
-        window.location.href = 'loginpage'
+        router.push('loginpage')
       }
     }
   },

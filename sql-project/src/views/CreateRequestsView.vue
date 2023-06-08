@@ -32,7 +32,7 @@ export default {
     },
     checkUser: function () {
       if (useAuthStore().currentUser === null) {
-        window.location.href = 'loginpage'
+        router.push('loginpage')
       }
     },
     submitted: async function () {
