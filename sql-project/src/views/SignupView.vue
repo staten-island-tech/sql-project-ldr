@@ -87,7 +87,7 @@ export default {
   display: flex;
   flex-direction: column;
   height: 50vh;
-  border: 15px white solid;
+  border: 15px w solid;
   position: absolute; left: 40%;
 
  box-sizing: border-box;
