@@ -7,6 +7,18 @@ export default {
     logOut: function () {
       useAuthStore().clearUser()
       router.push('loginpage')
+      this.loggedin = false
+    },
+    login: function () {
+      this.loggedin = true
+    },
+    logIn: function () {
+      router.push('loginpage')
+    }
+  },
+  data() {
+    return {
+      loggedin: false
     }
   }
 }
@@ -23,15 +35,14 @@ export default {
           </div>
 
           <div class="right">
-            <RouterLink class="router" to="/loginPage">Login</RouterLink>
+            <button v-if="loggedin" @click="logOut">Log Out</button>
+            <button v-if="!loggedin" @click="logIn">Log In</button>
           </div>
         </nav>
       </div>
-
-      <button @click="logOut">Log Out</button>
     </header>
 
-    <RouterView />
+    <RouterView @loggedin="login" />
   </div>
 </template>
 
