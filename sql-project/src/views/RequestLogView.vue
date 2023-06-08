@@ -67,7 +67,7 @@ export default {
     <div class="no-data" v-if="noCardData">
       <p>
         Looks like you don't have requests in our database.<RouterLink to="requests">
-          <h4>Create a request here:</h4>
+          <h4>Create a request here</h4>
         </RouterLink>
       </p>
     </div>
@@ -89,7 +89,33 @@ export default {
 
 <style scoped>
 .main{
-  color:black
+  color:black;
+  
+  
+}
+a,
+.green {
+  text-decoration: none;
+ color: red;
+  transition: 0.4s;
+  text-decoration: underline;
+}
+
+.no-data{
+  font-size: 16px;
+  display: flex;
+  width: 50vw;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10px auto;
+  flex-direction: column;
+  padding: 10px;
+  border: 10px #C8A2C8 solid;
+  background-color:#E6E6FA;
+}
+p{
+ text-underline-position: under;
+ 
 }
 .card{
   font-size: 16px;
