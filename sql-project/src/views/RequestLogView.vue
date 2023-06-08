@@ -29,10 +29,8 @@ export default {
       let data = dogRequests.concat(catRequests)
       if (data.length > 0) {
         this.noCardData = false
-        console.log('e')
       } else if (data.length === 0) {
         this.noCardData = true
-        console.log('e')
       } else {
         console.log('error')
       }
