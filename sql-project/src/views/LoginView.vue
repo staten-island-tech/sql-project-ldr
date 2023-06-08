@@ -21,6 +21,7 @@ async function signIn(supabase, userEmail, userPassword) {
     useAuthStore().loadUser(user.id)
     router.push('requestlog')
   } catch (error) {
+    this.errormessage = 'Couldnt log you in, please check your credentials or try again later.'
     console.error(error)
   }
 }
@@ -40,7 +41,12 @@ export default {
       }
       this.$emit('loggedin')
     },
-    emits: ['loggedin']
+    emits: ['loggedin'],
+    data() {
+      return {
+        errormessage: ''
+      }
+    }
   }
 }
 </script>
@@ -66,6 +72,9 @@ export default {
           <span
             >Don't have an account? <a><RouterLink to="/signupPage">Sign Up</RouterLink></a></span
           >
+        </div>
+        <div id="errormessage">
+          <p id="errormessage">{{ error }}</p>
         </div>
       </div>
     </div>
