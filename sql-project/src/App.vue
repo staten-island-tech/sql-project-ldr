@@ -36,9 +36,8 @@ export default {
 </template>
 
 <style scoped>
-div{
-  background-color:rgba(161,219,249,255);
-  
+div {
+  background-color: rgba(161, 219, 249, 255);
 }
 header {
   line-height: 1.5;
@@ -58,12 +57,12 @@ nav {
 nav a {
   display: inline-block;
   padding: 1rem;
-  border-left: 1px solid var(--color-border);
+  border-left: 2.5px solid var(--color-border);
 }
 
 .left {
   margin-left: 5rem;
-  color:black
+  color: black;
 }
 .right {
   margin-right: 5rem;
@@ -77,7 +76,7 @@ nav:hover .router {
   color: #575757;
 }
 nav:hover .router:hover {
-  color: #5cdb95;
+  color: #00004c;
   box-shadow: 0 2px 0 0 currentColor;
 }
 
