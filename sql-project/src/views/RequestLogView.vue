@@ -93,4 +93,17 @@ export default {
 .main{
   color:black
 }
+.card{
+  font-size: 16px;
+  display: flex;
+  width: 50vw;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10px auto;
+  flex-direction: column;
+  padding: 10px;
+  border: 10px #C8A2C8 solid;
+  background-color:#E6E6FA;
+}
+
 </style>
