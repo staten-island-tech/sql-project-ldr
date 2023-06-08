@@ -60,7 +60,7 @@ export default {
  </div>
 </div> -->
  
-  
+
     <div class="background">
     <div class="login-section">
       <h1>Login</h1>
@@ -162,11 +162,10 @@ background-color:white;
   padding: 10px;
 }
  */
- .background{
-  width: 100%;
-  background-color: white;
-  background-image: url("https://img.freepik.com/premium-vector/cute-cat-corgi-dog-cartoon-vector-icon-illustration_480044-276.jpg?w=2000");
- }
+
+
+ 
+ 
 .login-section {
   width: 25%;
   align-items: center;
