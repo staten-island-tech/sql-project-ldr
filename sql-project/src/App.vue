@@ -11,9 +11,6 @@ export default {
     },
     login: function () {
       this.loggedin = true
-    },
-    logIn: function () {
-      router.push('loginpage')
     }
   },
   data() {
@@ -36,7 +33,6 @@ export default {
 
           <div class="right">
             <button v-if="loggedin" @click="logOut">Log Out</button>
-            <button v-if="!loggedin" @click="logIn">Log In</button>
           </div>
         </nav>
       </div>
