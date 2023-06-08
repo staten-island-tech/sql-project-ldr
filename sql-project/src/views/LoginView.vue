@@ -45,7 +45,7 @@ export default {
 
 <template>
   <main>
-    <div class="father">
+    <!-- <div class="father">
    <div class="Child1">
      <img src="data:image/jpeg;base64,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" alt="img" >
    </div>
@@ -58,10 +58,10 @@ export default {
  <div class="Child4">
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUEBKVL5bmjNndGoN6o3EqUfJux49JfjUE3rYXeOWR&s" alt="img">
  </div>
-</div>
+</div> -->
  
   
-    
+    <div class="background">
     <div class="login-section">
       <h1>Login</h1>
 <form class="login form">
@@ -78,12 +78,11 @@ export default {
 
       <div class="signup-instead">
         <span
-          >Don't have an account? <a><RouterLink to="/signupPage">Sign Up</RouterLink></a></span
-        >
+          >Don't have an account? <a><RouterLink to="/signupPage">Sign Up</RouterLink></a></span>
       </div>
     </div>
   
-
+</div>
 
 
     
@@ -92,7 +91,7 @@ export default {
 
 <style scoped>
 
-.img1{
+/* .img1{
  width:70%;
 }
 .Child1 {
@@ -162,7 +161,12 @@ background-color:white;
   flex-direction: column;
   padding: 10px;
 }
-
+ */
+ .background{
+  width: 100%;
+  background-color: white;
+  background-image: url("https://img.freepik.com/premium-vector/cute-cat-corgi-dog-cartoon-vector-icon-illustration_480044-276.jpg?w=2000");
+ }
 .login-section {
   width: 25%;
   align-items: center;
@@ -174,7 +178,7 @@ background-color:white;
   box-sizing: border-box;
   border-radius: 3px;
   position: absolute;
-  left: 40%;
+  right: 10%;
   top:20%;
   background-color: blueviolet;
 }
