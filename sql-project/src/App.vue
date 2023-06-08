@@ -52,6 +52,7 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  color: black;
 }
 
 nav a {
@@ -62,6 +63,7 @@ nav a {
 
 .left {
   margin-left: 5rem;
+  color:black
 }
 .right {
   margin-right: 5rem;

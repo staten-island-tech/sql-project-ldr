@@ -83,6 +83,9 @@ export default {
 background-image: url("https://img.freepik.com/premium-vector/cute-cat-corgi-dog-cartoon-vector-icon-illustration_480044-276.jpg?w=2000");
 
 }
+span{
+  color: darkslateblue;
+}
 .login-section {
   width: 25%;
   margin: 4rem auto;
@@ -91,10 +94,10 @@ background-image: url("https://img.freepik.com/premium-vector/cute-cat-corgi-dog
   display: flex;
   flex-direction: column;
   height: 50vh;
-  border: 10px grey solid;
+  border: 10px #C8A2C8 solid;
   box-sizing: border-box;
   border-radius: 3px;
-  background-color: blueviolet;
+  background-color:#E6E6FA;
   right: 0%;
   
 }
@@ -104,6 +107,7 @@ h1 {
   text-align: center;
   margin-bottom: 1rem;
   font-size: 35px;
+  color: black;
 }
 
 h2 {
