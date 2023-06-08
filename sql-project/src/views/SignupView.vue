@@ -53,46 +53,45 @@ export default {
 <template>
   <main>
     <div class="background">
-    <div class="signup-section">
-      <h1>Sign Up</h1>
+      <div class="signup-section">
+        <h1>Sign Up</h1>
 
-      <form class="signup-form">
-        <div class="email">
-          <input type="email" placeholder="Email" id="email" />
+        <form class="signup-form">
+          <div class="email">
+            <input type="email" placeholder="Email" id="email" />
+          </div>
+
+          <div class="password">
+            <input type="password" placeholder="Password" id="password" />
+          </div>
+          <div class="password">
+            <input type="password" placeholder="Confirm Password" id="password-confirm" />
+          </div>
+
+          <input type="submit" value="Sign Up" id="signup" @click="signup" />
+        </form>
+
+        <div class="login-instead">
+          <span
+            >Already have an account? <a><RouterLink to="/loginPage">Login</RouterLink></a></span
+          >
         </div>
-
-        <div class="password">
-          <input type="password" placeholder="Password" id="password" />
-        </div>
-        <div class="password">
-          <input type="password" placeholder="Confirm Password" id="password-confirm" />
-        </div>
-
-        <input type="submit" value="Sign Up" id="signup" @click="signup" />
-      </form>
-
-      <div class="login-instead">
-        <span
-          >Already have an account? <a><RouterLink to="/loginPage">Login</RouterLink></a></span
-        >
       </div>
     </div>
-  </div>
   </main>
 </template>
 
 <style scoped>
-.background{
-  background-color:rgba(161,219,249,255);
+.background {
+  background-color: rgba(161, 219, 249, 255);
   background-size: 30%;
   background-repeat: no-repeat;
-background-image: url("https://img.freepik.com/premium-vector/cute-cat-corgi-dog-cartoon-vector-icon-illustration_480044-276.jpg?w=2000");
-
+  background-image: url('https://img.freepik.com/premium-vector/cute-cat-corgi-dog-cartoon-vector-icon-illustration_480044-276.jpg?w=2000');
 }
-a{
+a {
   text-decoration: underline;
 }
-span{
+span {
   color: darkslateblue;
 }
 .signup-section {
@@ -103,10 +102,10 @@ span{
   display: flex;
   flex-direction: column;
   height: 50vh;
-  border: 10px #C8A2C8 solid;
+  border: 10px #c8a2c8 solid;
   box-sizing: border-box;
   border-radius: 3px;
-  background-color:#E6E6FA;
+  background-color: #e6e6fa;
 }
 
 h1 {
