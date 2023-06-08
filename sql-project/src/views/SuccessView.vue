@@ -30,3 +30,17 @@ export default {
     </RouterLink>
   </div>
 </template>
+
+<style scoped>
+.body {
+  color: black;
+  padding: 2rem;
+  width: 80%;
+  margin: auto;
+  border: 3px blueviolet solid;
+  border-radius: 50px;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    font-size: 28px;
+}
+</style>
