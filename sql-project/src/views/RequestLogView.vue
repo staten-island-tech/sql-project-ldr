@@ -88,3 +88,9 @@ export default {
     />
   </div>
 </template>
+
+<style scoped>
+.main{
+  color:black
+}
+</style>

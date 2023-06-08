@@ -52,6 +52,7 @@ export default {
 
 <template>
   <main>
+    <div class="background">
     <div class="signup-section">
       <h1>Sign Up</h1>
 
@@ -76,10 +77,18 @@ export default {
         >
       </div>
     </div>
+  </div>
   </main>
 </template>
 
 <style scoped>
+.background{
+  background-color:rgba(161,219,249,255);
+  background-size: 30%;
+  background-repeat: no-repeat;
+background-image: url("https://img.freepik.com/premium-vector/cute-cat-corgi-dog-cartoon-vector-icon-illustration_480044-276.jpg?w=2000");
+
+}
 .signup-section {
   width: 25%;
   margin: 4rem auto;
@@ -88,9 +97,10 @@ export default {
   display: flex;
   flex-direction: column;
   height: 50vh;
-  border: 10px white solid;
+  border: 10px grey solid;
   box-sizing: border-box;
   border-radius: 3px;
+  background-color: blueviolet;
 }
 
 h1 {

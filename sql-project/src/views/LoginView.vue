@@ -91,11 +91,11 @@ background-image: url("https://img.freepik.com/premium-vector/cute-cat-corgi-dog
   display: flex;
   flex-direction: column;
   height: 50vh;
-  border: 10px white solid;
+  border: 10px grey solid;
   box-sizing: border-box;
   border-radius: 3px;
   background-color: blueviolet;
-  left: 30%;
+  right: 0%;
   
 }
 

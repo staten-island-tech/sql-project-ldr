@@ -154,8 +154,13 @@ h1 {
   font-family: 'Playfair Display', serif;
   font-weight: 400;
   text-align: center;
+  color: black;
+  font: bold;
+  
 }
-
+h2,h3,.tasks{
+  color:black
+}
 .row-1 {
   display: flex;
   flex-wrap: wrap;
@@ -168,10 +173,11 @@ h1 {
 }
 
 .requestCreator {
+  color: black;
   padding: 2rem;
   width: 80%;
   margin: auto;
-  border: 3px white solid;
+  border: 3px blueviolet solid;
   border-radius: 50px;
   box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
     rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
