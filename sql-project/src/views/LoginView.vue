@@ -78,13 +78,10 @@ export default {
   flex-direction: column;
   height: 50vh;
   border: 10px white solid;
-
- box-sizing: border-box;
- border-radius: 3px;
- position: absolute; left: 40%;
-
- 
-
+  box-sizing: border-box;
+  border-radius: 3px;
+  position: absolute;
+  left: 40%;
 }
 
 h1 {
