@@ -43,8 +43,11 @@ export default {
 }
 </script>
 
+
 <template>
   <main>
+
+
     <div class="background">
       <div class="login-section">
         <h1>Login</h1>
@@ -67,11 +70,18 @@ export default {
         </div>
       </div>
     </div>
+    
   </main>
 </template>
 
 <style scoped>
-main {
+
+.background{
+  background-color:rgba(161,219,249,255);
+  background-size: 30%;
+  background-repeat: no-repeat;
+background-image: url("https://img.freepik.com/premium-vector/cute-cat-corgi-dog-cartoon-vector-icon-illustration_480044-276.jpg?w=2000");
+
 }
 .login-section {
   width: 25%;
@@ -84,6 +94,9 @@ main {
   border: 10px white solid;
   box-sizing: border-box;
   border-radius: 3px;
+  background-color: blueviolet;
+  left: 30%;
+  
 }
 
 h1 {

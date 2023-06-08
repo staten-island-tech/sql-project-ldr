@@ -36,6 +36,10 @@ export default {
 </template>
 
 <style scoped>
+div{
+  background-color:rgba(161,219,249,255);
+  
+}
 header {
   line-height: 1.5;
   max-height: 100vh;
