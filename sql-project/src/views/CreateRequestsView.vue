@@ -173,7 +173,7 @@ h3,
   margin-top: 3rem;
 }
 
-.requestCreator {
+.requestCreator,.preview {
   color: black;
   padding: 2rem;
   width: 80%;
