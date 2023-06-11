@@ -42,7 +42,7 @@ export default {
       }
     },
     sortPet: function (dog, cat) {
-      let pet = 'invalid pet species, please input[type="checkbox"] cat or dog.'
+      let pet = 'invalid pet species, please input cat or dog.'
       if (dog === true && cat === false) {
         let pet = 'Dog'
         return pet
